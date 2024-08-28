@@ -1,3 +1,22 @@
 ---
 title: "Keynotes"
 ---
+
+## Updates from Posit
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004520449001rbm2)
+
+Speakers:
+
+-   Hadley Wickham, Chief Scientist, Posit
+-   James Blair, Senior Product Manager, Posit
+-   Charlotte Wickham, Developer Educator, Posit
+-   George Stagg, Software Engineer, Posit
+
+### Session description
+
+*Please join us for our first Posit keynote, where we’ll tell you about our mission, our products, and some of the exciting things we’ve been working on over the last year. Hadley Wickham, Chief Scientist, will talk briefly about Posit’s mission and products, before introducing the three speakers who will update you on some of the coolest projects we’ve worked on over the last year. James Blair, Senior Product Manager, will give you the latest on our partnerships with Databricks and Snowflake, and how we’re building seamless integrations that let you focus on data science instead of dealing with technical details. Charlotte Wickham, Developer Educator, will show you what’s new in Quarto, focusing on new ways to build beautiful PDFs with Typst. Finally, George Stagg, Senior Software Engineer, will tell you about the latest innovations in teaching using webR, a tool that lets you compile your R code into standalone HTML files.*
+
+### Session notes
+
+## Other talk

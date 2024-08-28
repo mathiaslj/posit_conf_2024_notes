@@ -2,15 +2,8 @@
 title: "posit::conf(2024) conference notes"
 ---
 
-This is a Quarto website.
+This Quarto website is home to private notes from workshop and attended conference talks.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Links:
 
-```{r}
-1 + 1
-```
-
-```{r}
-
-```
-
+-   [Conference portal](https://reg.conf.posit.co/flow/posit/positconf24/reg/login)
