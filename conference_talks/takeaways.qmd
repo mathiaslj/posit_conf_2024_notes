@@ -4,15 +4,11 @@ title: "Takeaways"
 
 ## Quarto
 
-### Rendering
-
 -   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML. 
-
-### Extensions
-
 -   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content.
+    
+## Data access and user authentication
 
-### Tips and tricks working with quarto
-
--   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
-    -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.
+-   Ability to sign into organisation's cloud data platform like [snowflake](https://www.snowflake.com/en/) or [databricks](https://www.databricks.com/) in Posit Workbench AND Posit Connect
+    -   Users no longer have to think about managing access tokens to pass them to connections when working in workbench
+    -   Authentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform

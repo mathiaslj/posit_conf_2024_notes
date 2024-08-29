@@ -1,0 +1,6 @@
+---
+title: "Working with quarto"
+---
+
+-   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
+    -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.

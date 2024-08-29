@@ -26,10 +26,36 @@ Speakers:
 ### webR, shinylive and Quarto live
 
 -   [webR](https://webr.r-wasm.org/latest/) is a javascript app that allows running of R code directly in browser.
--   [shinylive][https://posit-dev.github.io/r-shinylive/] is an R package that enables way of running Shiny entirely in a browser using webR.
+-   [shinylive](https://posit-dev.github.io/r-shinylive/) is an R package that enables way of running Shiny entirely in a browser using webR.
     -   Embed shinylive in quarto using [quarto extension](https://quarto-ext.github.io/shinylive/)
 -   [Quarto live](https://github.com/r-wasm/quarto-live) quarto extension which enables interactive documents and code exercises in quarto documents
     -   Options of setup blocks, targeted feedback and much more available
     -   Great way to create educational material
 
 ### Snowflake and databricks
+
+#### Infrastructure management
+
+-   [Posit workbench](https://posit.co/products/enterprise/workbench/) available in [Snowflake](https://www.snowflake.com/en/) marketplace
+    -   Give users access to workbench directly through existing Snowflake infrastructure
+    -   Version of workbench automatically update when new there is new release
+    -   Low maintenance, hands-off approach to give users what they need
+    
+Posit will work with other cloud data platforms to provide similar experience in other environments
+
+#### Data access
+
+-   New [`databricks`](https://odbc.r-dbi.org/reference/databricks.html) and [`snowflake`](https://odbc.r-dbi.org/reference/snowflake.html) functions in `odbc` package for easier connections.
+-   Users can sign in to databricks or snowflake on Posit workbench, and then workbench will manage credentials on the users behalf.
+    -   No longer have to think about access tokens, passwords - how to manage those, pass them into the connection, etc.
+    -   Works with `odbc` but also `sparklyr` and interaction with `spark` in databricks
+
+#### Authentication in apps
+
+One solution is to create service account with an access token that runs the app. However, two limitations:
+
+-   Users will see data based on permission set of service account.
+-   With number of apps growing, so is number of service account with tokens that need managing
+
+New solution: Integrated authetication as described above but in Posit Connect
+-   As a viewer, you log in to fx. databricks, and you will then only be able to see data that you are authorised to see through you permissions on your databricks account.
