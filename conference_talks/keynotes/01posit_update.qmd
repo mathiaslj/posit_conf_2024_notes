@@ -1,8 +1,6 @@
 ---
-title: "Keynotes"
+title: "Updates from Posit"
 ---
-
-## Updates from Posit
 
 [Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004520449001rbm2)
 
@@ -13,19 +11,19 @@ Speakers:
 -   Charlotte Wickham, Developer Educator, Posit
 -   George Stagg, Software Engineer, Posit
 
-### Session description
+## Session description
 
 *Please join us for our first Posit keynote, where we’ll tell you about our mission, our products, and some of the exciting things we’ve been working on over the last year. Hadley Wickham, Chief Scientist, will talk briefly about Posit’s mission and products, before introducing the three speakers who will update you on some of the coolest projects we’ve worked on over the last year. James Blair, Senior Product Manager, will give you the latest on our partnerships with Databricks and Snowflake, and how we’re building seamless integrations that let you focus on data science instead of dealing with technical details. Charlotte Wickham, Developer Educator, will show you what’s new in Quarto, focusing on new ways to build beautiful PDFs with Typst. Finally, George Stagg, Senior Software Engineer, will tell you about the latest innovations in teaching using webR, a tool that lets you compile your R code into standalone HTML files.*
 
-### Session notes
+## Session notes
 
-#### Future of Quarto
+### Future of Quarto
 
 -   Lots new features for [quarto dashboards](https://quarto.org/docs/dashboards/)
 -   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation rather than LaTeX
     -   typst ensures transformation of CSS behind HTML to typst properties than ensures HTML and PDF look exactly similar
     
-#### webR, shinylive and Quarto live
+### webR, shinylive and Quarto live
 
 -   [webR](https://webr.r-wasm.org/latest/) is a javascript app that allows running of R code directly in browser.
 -   [shinylive][https://posit-dev.github.io/r-shinylive/] is an R package that enables way of running Shiny entirely in a browser using webR.
@@ -34,8 +32,4 @@ Speakers:
     -   Options of setup blocks, targeted feedback and much more available
     -   Great way to create educational material
 
-#### Snowflake and databricks
-
-## Other talks
-
-test
+### Snowflake and databricks

@@ -16,7 +16,16 @@ website:
       title: Conference talks
       style: "docked"
       contents: 
-        - auto: conference_talks
+        - text: "Takeaways"
+          href: conference_talks/takeaways.qmd
+        - section: "Keynotes"
+          contents:
+            - auto: "conference_talks/keynotes/*.qmd"
+        - section: "Other talks"
+          contents:
+            - auto: "conference_talks/other_talks/*.qmd"
+        
+            
 
 format:
   html:
