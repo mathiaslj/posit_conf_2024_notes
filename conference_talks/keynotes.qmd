@@ -19,4 +19,23 @@ Speakers:
 
 ### Session notes
 
-## Other talk
+#### Future of Quarto
+
+-   Lots new features for [quarto dashboards](https://quarto.org/docs/dashboards/)
+-   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation rather than LaTeX
+    -   typst ensures transformation of CSS behind HTML to typst properties than ensures HTML and PDF look exactly similar
+    
+#### webR, shinylive and Quarto live
+
+-   [webR](https://webr.r-wasm.org/latest/) is a javascript app that allows running of R code directly in browser.
+-   [shinylive][https://posit-dev.github.io/r-shinylive/] is an R package that enables way of running Shiny entirely in a browser using webR.
+    -   Embed shinylive in quarto using [quarto extension](https://quarto-ext.github.io/shinylive/)
+-   [Quarto live](https://github.com/r-wasm/quarto-live) quarto extension which enables interactive documents and code exercises in quarto documents
+    -   Options of setup blocks, targeted feedback and much more available
+    -   Great way to create educational material
+
+#### Snowflake and databricks
+
+## Other talks
+
+test

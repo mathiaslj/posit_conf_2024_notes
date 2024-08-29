@@ -4,6 +4,14 @@ title: "Takeaways"
 
 ## Quarto
 
+### Rendering
+
+-   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML. 
+
+### Extensions
+
+-   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content.
+
 ### Tips and tricks working with quarto
 
 -   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
