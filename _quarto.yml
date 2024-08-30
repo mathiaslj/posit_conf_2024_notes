@@ -1,5 +1,7 @@
 project:
   type: website
+  pre-render: "echo Let the rendering begin!"
+  post-render: "Rendering done!"
 
 website:
   title: "posit::conf(2024)"
@@ -16,20 +18,17 @@ website:
       title: Conference talks
       style: "docked"
       contents: 
-        - text: "Takeaways"
-          href: conference_talks/takeaways.qmd
         - section: "Keynotes"
           contents:
             - auto: "conference_talks/keynotes/*.qmd"
         - section: "Other talks"
           contents:
             - auto: "conference_talks/other_talks/*.qmd"
-        - section: "Tips and tricks"
+        - section: "Takeaways"
           contents:
+            - conference_talks/whats_new.qmd
             - conference_talks/tipsandtricks.qmd
         
-            
-
 format:
   html:
     theme: cosmo

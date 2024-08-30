@@ -1,0 +1,77 @@
+---
+title: "Automated Reporting With Quarto: Beyond Copy And Paste"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004124994001gOid)
+
+Speakers:
+
+_   Tyler Morgan-Wall - Quarto, AI, and the Art of Getting Your Life Back
+-   Sean Nguyen - Beyond Dashboards: Dynamic Data Storytelling with Python, R, and Quarto Emails
+-   Orla Doyle - Creating Reproducible Static Reports
+-   Joshua Cook - Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers
+
+## Quarto, AI, and the Art of Getting Your Life Back
+
+### Session description
+
+*Are you tired of dealing with endless server issues and maintenance headaches? Want to reclaim your time for coding, writing, and creating? Join Tyler Morgan-Wall as he shares his journey of switching from the server-based headaches of Wordpress to Quarto, with a little help from AI. This talk will cover the simple trick he used to convert an existing Wordpress blog—complete with custom scripts, styles, and beautiful 3D dataviz content—into a slick Quarto site. He will also demonstrate some lesser-known features of Quarto to automate deploying a website entirely from a Quarto project file. Finally, Tyler will show how he used AI to customize and style his new Quarto site, providing several useful strategies if you decide to get some help from AI on your own Quarto journey.*
+
+### Session notes
+
+-   Can input HTML directly into quarto documents - Able to migrate blog from [Wordpress](https://wordpress.com/) by copying HTML directly into quarto
+-   Use `pre-render` and `post-render` specified under `project` in your `_quarto.yml` file to run code prior to or after rendering the site
+    -   Can fx. use `post-render` to run an R script that uses `rsync` to "move" the `_site` folder to a server location for deployment
+    
+#### Styling quarto documents and using AI
+
+-   AI is great at writing CSS, so use this for styling. Explain exactly what is needed. Fx. "I want an HTML card that has a slight metallic shimmer animation when I hover over with my mouse, using CSS"
+-   Use AI to write javascript, which can make HTML dynamic. Fx. Tyler talked about creating a [Quarto listing](https://quarto.org/docs/websites/website-listings.html) into an image carousel on his blog
+
+-   Give it context in form of fx. HTML and/or a screenshot
+-   If it gets stuck, ask it to explain what steps are doing, so you yourself can get the understanding to make finishing touches
+
+## Beyond Dashboards: Dynamic Data Storytelling with Python, R, and Quarto Emails
+
+### Session description
+
+*Sean Nguyen challenges the traditional reliance on dashboards for business intelligence, highlighting their shortcomings in delivering prompt insights. He proposes a new strategy that uses Python and R to generate dynamic, customized emails, leveraging Quarto and Posit Connect for seamless automation. This technique ensures the direct and effective delivery of actionable insights to users' inboxes, enhancing informed decision-making and boosting engagement. Sean's talk will redefine data delivery methods for optimal impact and encourage a fundamental shift in mindset among data practitioners towards a more engaged and individualized form of data narration.*
+
+### Session notes
+
+Use scheduled runs of Quarto to send emails.
+
+-   Use data for logic to decide whether mail should be sent or not
+    -   Fx. for finance department create logic for whether or not you are over budget. If over budget, send mail with Quarto document that showcases something relevant
+-   Use `format: email` and `:::{.email}:::`, `:::{.email-scheduled}:::`, `:::{.subject}:::`
+-   Use `params:` at in YAML at top or documents and then reference them using `params$`
+
+Final structure of qmd file will be: Fetch pinned data -> create analyses from data -> email logic (whether to send or not) -> email content (Hi, give context in text, display analyses)
+
+## Creating Reproducible Static Reports
+
+### Session description
+
+*In clinical trials, interdisciplinary teams often discuss outputs using static documents. Orla Doyle's talk focuses on bringing the advantages of modern tools (R, markdown, git) and software development practices to the production of company documents. She outlines how her team used an object-oriented approach to create classes for report items, complete with a suite of tests, and rendered the final report programmatically in docx format using a company template. This approach allows statisticians to work in a truly end-to-end fashion within a GxP environment, producing a format suitable for interdisciplinary collaboration. The package is currently being piloted internally before release to the open-source community.*
+
+### Session notes
+
+Novartis created r package to create compliant word documents with sample size calculations.
+
+-   Word document created using a markdown file with elements of the word document being created using R6 classes (separate classes for fx. title page, tables, etc.)
+-   Uses the [officer package](https://davidgohel.github.io/officer/index.html)
+
+## [Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers](https://github.com/jjc54/posit_2024_quarto_presentation)
+
+### Session description
+
+*Joshua Cook discusses the slow and cumbersome process of traditional medical research dissemination, which often results in a diverse array of outputs such as reports for sponsors and regulators, manuscripts for peer-reviewed journals, summaries for online platforms, and presentations for conferences. He demonstrates how Quarto can streamline this process by enabling the creation of various polished formats from a single source, while meeting diverse submission requirements. This talk will showcase how Quarto can revolutionize communication in medical research, making it more impactful and accelerating the delivery of treatments to patients.*
+
+### Session notes
+
+-   Use [`embed`](https://quarto.org/docs/authoring/notebook-embed.html#quarto-documents) to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks
+    -   Fx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an `analyses/` folder and just embed them from there in your other documents. Means there is one source of truth
+    -   Use `execute: freeze: auto` in your `_quarto.yml` file to make it automatically render files only when changes are detected
+        -   This means when you render your documents that embeds analyses, it will not re-render the analysis document unless changes are detected
+-   Use templates        
+    -   See fx. a [minimalist presentation theme for Quarto Reveal.js](https://github.com/grantmcdermott/quarto-revealjs-clean#readme)

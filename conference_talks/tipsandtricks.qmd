@@ -1,5 +1,5 @@
 ---
-title: "Small things learnt from conference"
+title: "Miscellaneous tips and tricks learnt from conference"
 ---
 
 ## General package development
@@ -14,6 +14,15 @@ title: "Small things learnt from conference"
 
 -   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
     -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.
+-   Use `pre-render` and `post-render` specified under `project` in your `_quarto.yml` file to run code prior to or after rendering the site
+    -   Can fx. use `post-render` to run an R script that uses `rsync` to "move" the `_site` folder to a server location for deployment
+-   Use AI to write CSS and javascript for customisation
+-   Use [Quarto listings](https://quarto.org/docs/websites/website-listings.html) to create overviews of the available files in a directory
+-   Use `params:` at in YAML at top or documents and then reference them using `params$`
+-   Use [`embed`](https://quarto.org/docs/authoring/notebook-embed.html#quarto-documents) to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks
+    -   Fx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an `analyses/` folder and just embed them from there in your other documents. Means there is one source of truth
+-   Use templates        
+    -   See fx. a [minimalist presentation theme for Quarto Reveal.js](https://github.com/grantmcdermott/quarto-revealjs-clean#readme)
     
 ## Positron
 
