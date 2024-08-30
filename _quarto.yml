@@ -24,9 +24,9 @@ website:
         - section: "Other talks"
           contents:
             - auto: "conference_talks/other_talks/*.qmd"
-        - section: "Tips and tricks learnt from conference"
+        - section: "Tips and tricks"
           contents:
-            - auto: "conference_talks/tipsandtricks/*.qmd"
+            - conference_talks/tipsandtricks.qmd
         
             
 

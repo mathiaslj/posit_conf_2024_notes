@@ -1,0 +1,10 @@
+---
+title: "Working in Positron"
+---
+
+-   Documentation on hover
+-   Use Poistron to debug C and C++
+-   Ctrl+shift+P opens command palette
+-   "Enable Rstudio key mappings in Positron" setting available
+-   Extensions readily available from [Open VSX](https://open-vsx.org/)
+    -   [Continue](https://github.com/continuedev/continue) for AI code assistant

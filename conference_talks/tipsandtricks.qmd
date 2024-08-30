@@ -1,0 +1,21 @@
+---
+title: "Small things learnt from conference"
+---
+
+## Quarto
+
+-   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
+    -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.
+    
+## Positron
+
+-   Documentation on hover
+-   Use Poistron to debug C and C++
+-   Ctrl+shift+P opens command palette
+-   "Enable Rstudio key mappings in Positron" setting available
+-   Extensions readily available from [Open VSX](https://open-vsx.org/)
+    -   [Continue](https://github.com/continuedev/continue) for AI code assistant
+    
+## Ressources
+-   [R Consortium Working Groups](https://www.r-consortium.org/all-projects/isc-working-groups)
+-   [ROpenSci](https://ropensci.org/)

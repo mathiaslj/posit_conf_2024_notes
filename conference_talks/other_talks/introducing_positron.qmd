@@ -1,0 +1,70 @@
+---
+title: "Introducing Positron"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712707493462001KPj8)
+
+Speakers:
+
+-   Julia Silge - Introducing Positron
+-   Isabel Zimmerman - Exploratory Data Analysis with Python in Positron
+-   Tom Mock - Debugging Data with the Positron Data Explorer
+-   Jonathan McPherson - Architecture and Design of Positron
+-   Lionel Henry and Davis Vaughan - Introducing Ark, Modern Tooling for R
+-   Jenny Bryan - Positron for R and RStudio users
+
+## Session description
+
+*Positron is a next generation data science IDE that is newly available to the community for early beta testing. This new IDE is an extensible tool built to facilitate exploratory data analysis, reproducible authoring, and publishing data artifacts. Positron currently supports these data workflows in either or both Python and/or R, and is designed with a forward-looking architecture that can support other data science languages in the future. In this session, learn from the team building Positron about how and why it is designed the way it is, what will feel familiar or new coming from other IDEs, and whether it might be a good fit for your own work.*
+
+## Session notes
+
+[Positron](https://github.com/posit-dev/positron) is an IDE (integrated development environment) for data science - more specific than many other IDEs designed for general software engineering.
+
+### Features
+
+New data viewer/explorer
+
+-   Summary panel
+-   Filter bar
+    
+### How it works
+
+-   Built on [code OSS](https://github.com/microsoft/vscode) (from which [Visual Studio Code](https://code.visualstudio.com/) is also built)
+-   Positron runs R or Python (or other languages) as extensions
+    -   In contrast to Rstudio, which is a single process running R, meaning only R can be run, and when R crashes, so does Rstudio. In positron, a crash of R results in the console restarting rather than breaking down the entire IDE.
+    
+#### Ark
+
+[Ark](https://github.com/posit-dev/ark) is a [Jupyter](https://jupyter.org/) kernal (computational engine) for running R, which powers auto-complete, diagnostics, execution, debugging, etc. of R code.
+
+When running R code in Positron, Positron communicates a request to Ark, which computes the answer and provides that back to Positron.
+
+##### Jupyter
+
+Jupyter is a multilingual project that can run Julia, Python and R. In an attempt to give a bit of oversimplified understanding to the inexperienced reader (myself), a Jupyter notebook can be though of kind of like an R markdown document, but it offers a more flexible, multilingual environment and a different approach to document structure and execution.
+
+When fx. a Jupyter notebook runs Python code, it uses a Jupyter Python kernel to execute the code.
+
+#### Code assistance
+
+-   Uses [language server protocol](https://microsoft.github.io/language-server-protocol/) (LSP)
+-   [tree-sitter](https://tree-sitter.github.io/tree-sitter/) takes in R code in a project and gives structured representation of code. 
+    -   Providing tree-sitter with a grammar for a language, it can provide diagnostics, completions, help-on-hover, etc.
+        -   GitHub search engine uses tree-sitter, so due to Posit building an R grammar, searches on all R projects are now much better.
+
+#### Debugging
+
+-   Uses [debug adapter protocol](https://microsoft.github.io/debug-adapter-protocol/)
+-   Enables debugging of C and C++ code
+
+### From Rstudio to Positron
+
+-   No need for .Rproj, "Open folder" will set the working directory, open the git pane, etc. that we normally needed an R project in Rstudio to do.
+-   Easily switch between versions of R (and Python)
+    -   [rig](https://github.com/r-lib/rig) is used for managing version installation and switching
+-   Positron defaults to [blank slate](https://usethis.r-lib.org/reference/use_blank_slate.html), meaning it does not save workspace, history, etc. on close
+-   Ctrl+shift+P opens command palette
+-   "Enable Rstudio key mappings in Positron" setting available
+-   Extensions readily available from [Open VSX](https://open-vsx.org/)
+    -   [Continue](https://github.com/continuedev/continue) for AI code assistant

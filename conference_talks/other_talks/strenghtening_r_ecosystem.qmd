@@ -1,0 +1,90 @@
+---
+title: "Strengthening the R ecosystem"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004081660001s6Bc)
+
+Speakers:
+
+-   Colin Gillespie - 20+ Years of Reading Data into R
+-   Heather Turner - Contributing to the R Project
+-   Dave Slager - What I Learned Resurrecting an R Package
+-   Kelly Bodwin - Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant
+
+## 20+ Years of Reading Data into R
+
+### Session description
+
+*For the last 20+ years, I've been reading data into R. It all started with the humble scan() function. Then, I used fancy new-fangled file formats, such as parquet and arrow, before progressing onto trendy databases, such as duckdb, for analytics. Besides the fun you can have by messing around with new technologies, when should you consider the above formats? In this talk, I'll cover a variety of methods for importing data and highlight the good, the bad, and the annoying.*
+
+### Session notes
+
+Essence of talk: csv just works and it will probably work for a long time out in the future - don't overcomplicate file formats when small sizes of data. For big data: Use [parquet](https://medium.com/@siladityaghosh/understanding-the-parquet-file-format-a-comprehensive-guide-b06d2c4333db) from [arrow](https://arrow.apache.org/docs/r/) or [nanoparquet](https://github.com/r-lib/nanoparquet).
+
+#### Parquet
+
+-   Uses metadata to save data smartly. Fx. `c(4,4,4,4,4,1,2,2,2,2)` parquet reads as "5 times 4, 1 times 1, 4 times 2", in addition many more features
+-   Size of parquet files usually bit smaller than RDS, but biggest gain is in read/write speed
+-   arrow/nanoparquet tries as much as possible to do calculations on file rather than in memory
+
+#### DuckDB
+
+Load data (in csv/parquet/whatever) into [DuckDB](https://duckdb.org/) (think of it as a cache) and use dplyr/duckplyr for fast queries.
+
+## Contributing to the R Project
+
+Slides: https://github.com/hturner/positconf2024
+
+### Sessions description
+
+*Posit provides an amazing set of products to support data science, and we will learn about many great packages and approaches from both Posit and the wider community at posit::conf(2024). But underlying it all are a number of open source tools, notably R and Python. How can we contribute to sustaining these open source projects, so that we can continue to use and build on them?*
+
+*In this talk I will address this question in the context of the R project. I will give an overview of the ways we can contribute as individuals or companies/organizations, both financially and in kind. Together we can build a more sustainable future for R!*
+
+### Session notes
+
+See the [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.
+
+#### Contribution oppotunities
+
+Little experience:
+
+-   [Translations](https://youtu.be/ABdyZW8yGS4)
+-   [Documentation](https://contributor.r-project.org/rdevguide/FixBug.html#using-a-git-mirror) via [GitHub](https://github.com/r-devel/r-svn)
+
+A bit more experience:
+
+-   [Code via R dev container](https://contributor.r-project.org/r-dev-env/tutorials/contribution_workflow/)
+    -   Can rebuild R with local changes to check if changes works as intended
+-   [R Can Use Your Help: Testing R Before Release](https://blog.r-project.org/2021/04/28/r-can-use-your-help-testing-r-before-release)
+    -   Usually major release around April
+-   [Reporting bugs](https://contributor.r-project.org/rdevguide/ReportingBugs.html)
+
+Bug fixer in R:
+
+-   [Reviewing bug reports](https://blog.r-project.org/2019/10/09/r-can-use-your-help-reviewing-bug-reports)
+
+#### Working groups
+
+-   [R Contribution Working Group](https://contributor.r-project.org/working-group)
+-   [Forwards](https://forwards.github.io/)
+-   [R Consortium Working Groups](https://www.r-consortium.org/all-projects/isc-working-groups), e.g.
+    -   Multilingual R Documentation
+    -   R7 Package
+    -   R Repositories
+
+## What I Learned Resurrecting an R package
+
+### Session description
+
+*We hear a lot about creating R packages, but R packages don't last forever on their own. I describe my experience resurrecting rvertnet, an abandoned ropensci project that had become stale on CRAN. I talk about how I found out the package needed a new maintainer, how I took ownership of the package, and how I decided what needed fixing. I discuss several examples of package repairs I implemented, including fixing outdated CI, removing unnecessary files and dependencies, writing workarounds for deprecated functions, and fixing building of a vignette. Finally, I'll describe my positive experiences communicating with the old maintainer and submitting a package to CRAN for the first time.*
+
+### Session notes
+
+
+
+### Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant
+
+The blessing and the curse of open-source software is that it lacks the infrastructure of a corporation. It can often be difficult to ensure that projects have stability and longevity. In this talk, I will discuss ongoing work on an NSF "Pathways in Open-Source Ecosystems" grant focused on the {data.table} package. Like many R packages, {data.table} has incredible functionality and thousands of users - but no cohesive community or governance structure to support it long-term. We are working to build this ecosystem. I will provide my advice and insight for key aspects of a sustainable open-source project: Engaging casual users, supporting developers, generating content, emphasizing education, and creating a home base for the community.
+
+## Session notes
