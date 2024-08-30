@@ -7,12 +7,6 @@ title: "Takeaways"
 -   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML. 
 -   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content.
     
-## Data access and user authentication
-
--   Ability to sign into organisation's cloud data platform like [snowflake](https://www.snowflake.com/en/) or [databricks](https://www.databricks.com/) in Posit Workbench AND Posit Connect
-    -   Users no longer have to think about managing access tokens to pass them to connections when working in workbench
-    -   Authentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform
-    
 ## Positron
 
 -   [Positron](https://github.com/posit-dev/positron) runs R as an extension, meaning that a crash in R does not result in a restart of the entire IDE (like in Rstudio), but rather that the console restarts
@@ -20,6 +14,12 @@ title: "Takeaways"
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
     
+## Data access and user authentication
+
+-   Ability to sign into organisation's cloud data platform like [snowflake](https://www.snowflake.com/en/) or [databricks](https://www.databricks.com/) in Posit Workbench AND Posit Connect
+    -   Users no longer have to think about managing access tokens to pass them to connections when working in workbench
+    -   Authentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform    
+
 ## R project
 
 -   See the [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.

@@ -2,6 +2,14 @@
 title: "Small things learnt from conference"
 ---
 
+## General package development
+
+-   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
+-   Ressources:
+    -   https://r-pkgs.org/
+    -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
+    -   [Tidyverse style guide](https://style.tidyverse.org/)
+
 ## Quarto
 
 -   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.

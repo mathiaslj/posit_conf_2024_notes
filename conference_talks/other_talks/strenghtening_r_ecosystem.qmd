@@ -81,10 +81,27 @@ Bug fixer in R:
 
 ### Session notes
 
+-   Contact the old maintainer to hear status and potentially suggest taking over the maintainer role
+-   Check through history in documentation, NEWS, issues, PRs, etc.
+-   Take a long time to just understand the code
+-   First goal: Get to *minimal working state*
 
+#### Developing the package
 
-### Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant
+-   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
+-   Ressources:
+    -   https://r-pkgs.org/
+    -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
+    -   [Tidyverse style guide](https://style.tidyverse.org/)
 
-The blessing and the curse of open-source software is that it lacks the infrastructure of a corporation. It can often be difficult to ensure that projects have stability and longevity. In this talk, I will discuss ongoing work on an NSF "Pathways in Open-Source Ecosystems" grant focused on the {data.table} package. Like many R packages, {data.table} has incredible functionality and thousands of users - but no cohesive community or governance structure to support it long-term. We are working to build this ecosystem. I will provide my advice and insight for key aspects of a sustainable open-source project: Engaging casual users, supporting developers, generating content, emphasizing education, and creating a home base for the community.
+## Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant
 
-## Session notes
+### Session description
+
+*The blessing and the curse of open-source software is that it lacks the infrastructure of a corporation. It can often be difficult to ensure that projects have stability and longevity. In this talk, I will discuss ongoing work on an NSF "Pathways in Open-Source Ecosystems" grant focused on the {data.table} package. Like many R packages, {data.table} has incredible functionality and thousands of users - but no cohesive community or governance structure to support it long-term. We are working to build this ecosystem. I will provide my advice and insight for key aspects of a sustainable open-source project: Engaging casual users, supporting developers, generating content, emphasizing education, and creating a home base for the community.*
+
+### Session notes
+
+Essence of talk: Don't be afraid to contribute - make issues on GitHub, write blogs about the work you do, etc.
+
+Suggests watching [The unreasonable effectiveness of public work - David Robinson - Rstudio conference 2019](https://www.youtube.com/watch?v=th79W4rv67g)
