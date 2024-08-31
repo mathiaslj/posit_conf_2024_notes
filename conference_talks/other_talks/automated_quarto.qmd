@@ -6,7 +6,7 @@ title: "Automated Reporting With Quarto: Beyond Copy And Paste"
 
 Speakers:
 
-_   Tyler Morgan-Wall - Quarto, AI, and the Art of Getting Your Life Back
+-   Tyler Morgan-Wall - Quarto, AI, and the Art of Getting Your Life Back
 -   Sean Nguyen - Beyond Dashboards: Dynamic Data Storytelling with Python, R, and Quarto Emails
 -   Orla Doyle - Creating Reproducible Static Reports
 -   Joshua Cook - Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers
@@ -62,6 +62,8 @@ Novartis created r package to create compliant word documents with sample size c
 -   Uses the [officer package](https://davidgohel.github.io/officer/index.html)
 
 ## [Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers](https://github.com/jjc54/posit_2024_quarto_presentation)
+
+[Link to slides](https://github.com/jjc54/posit_2024_quarto_presentation)
 
 ### Session description
 
