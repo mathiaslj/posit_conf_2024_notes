@@ -4,8 +4,15 @@ title: "What's new"
 
 ## Quarto
 
--   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML. 
--   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content.
+-   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML
+-   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content
+
+## AI tools {#whats_new-AI_tools}
+
+-   [recraft.ai](https://www.recraft.ai/) to generate consistent vector graphics - great for package stickers
+-   [scribe](https://scribehow.com/) to easily create step-by-step tutorials
+-   [descript](https://www.descript.com/) to modify video and audio recordings from transcript
+    -   Features besides editing the video through transcript include modifying voice, remove silence, filler words, create eye contact and more
     
 ## Positron
 

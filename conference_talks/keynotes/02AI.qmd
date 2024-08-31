@@ -1,3 +1,62 @@
 ---
 title: "Practical Tips for using Generative AI in Data Science Workflows"
 ---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004520449001rbm2)
+
+[Link to slides](https://github.com/melissavanbussel/posit-conf-2024)
+
+Speaker: Melissa Van Bussel
+
+## Session description
+
+*Now that we're a couple of years into the age of Generative AI, it's clear that this technology has the power to transform the way that we work. As Generative AI continues to evolve, the ways that we use these models should evolve, too. In this talk, we'll explore how we as data professionals can maximize the benefits of these tools in 2024, and how they can be incorporated into our everyday workflows. We'll also look at creative use cases that might not seem immediately obvious, but that will allow us to combine Generative AI with other data science tools that we already know and love, like Quarto and Shiny.*
+
+## Session notes
+
+### GPT-4 Capabilities
+
+-   Integrates text, audio, and images into one model.
+-   Now accessible for free.
+-   Use Cases:
+    -   Converting mathematical board work into Quarto documents.
+-       Transforming image data into CSV files.
+
+### Prompt Engineering
+
+-   Use single detailed prompts "built" layer by layer.
+    -   Approach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.
+
+### [Quarto revealjs presentation theme generator](https://quarto.org/docs/presentations/revealjs/)
+
+-   Can create nice looking [revealjs](https://revealjs.com/) presentations in quarto with `format: revealjs`
+-   Theme generator uses OpenAI API to generate CSS based on description of wanted look of theme
+
+### [recraft.ai](https://www.recraft.ai/)
+
+-   Generate consistent vector graphics
+    -   Vector graphics means included flexibility, such as recoloring.
+    -   Create for package stickers.
+
+### [scribe](https://scribehow.com/)
+
+-   Easily create step-by-step guides.
+    -   Start a screen recording, doing whatever should be showcased. The tool will automatically create screenshots and describe steps. Everything can be manually altered afterwards.
+-   Can be embedded as an [iframe](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/12-html-block/) in a Quarto website.
+
+### [Descript](https://www.descript.com/) for Video and Audio Editing
+
+-   Edit transcripts like a Word document.
+-   Regenerate or modify videos using voice clones.
+-   Enhance videos with eye contact simulation, and remove silence or filler words.
+
+### Guidance for Responsible AI Use
+
+Follow the "FASTER" principles:
+
+-   Fair: Maintain fairness in AI use.
+-   Accurate: Ensure outputs are precise.
+-   Secure: Generalize prompts and avoid uploading sensitive data.
+-   Transparent: Be clear about AI's role.
+-   Educated: Understand AI capabilities and limitations.
+-   Relevant: Assess whether AI is necessary for the task.

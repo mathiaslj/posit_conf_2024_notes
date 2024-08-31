@@ -1,7 +1,7 @@
 project:
   type: website
   pre-render: "echo Let the rendering begin!"
-  post-render: "Rendering done!"
+  # post-render: "Rendering done!"
 
 website:
   title: "posit::conf(2024)"

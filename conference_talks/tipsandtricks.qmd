@@ -2,6 +2,12 @@
 title: "Miscellaneous tips and tricks learnt from conference"
 ---
 
+## Use of AI
+
+-   See section [AI tools](whats_new.qmd#whats_new-AI_tools) for notes on AI tools.
+-   Use single detailed prompts "built" layer by layer.
+    -   Approach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.
+
 ## General package development
 
 -   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
@@ -12,18 +18,27 @@ title: "Miscellaneous tips and tricks learnt from conference"
 
 ## Quarto
 
+### Tips for working in Quarto
+
 -   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
     -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.
 -   Use `pre-render` and `post-render` specified under `project` in your `_quarto.yml` file to run code prior to or after rendering the site
     -   Can fx. use `post-render` to run an R script that uses `rsync` to "move" the `_site` folder to a server location for deployment
--   Use AI to write CSS and javascript for customisation
+
+#### Features
+
 -   Use [Quarto listings](https://quarto.org/docs/websites/website-listings.html) to create overviews of the available files in a directory
 -   Use `params:` at in YAML at top or documents and then reference them using `params$`
 -   Use [`embed`](https://quarto.org/docs/authoring/notebook-embed.html#quarto-documents) to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks
     -   Fx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an `analyses/` folder and just embed them from there in your other documents. Means there is one source of truth
+
+#### Customisation
+
 -   Use templates        
     -   See fx. a [minimalist presentation theme for Quarto Reveal.js](https://github.com/grantmcdermott/quarto-revealjs-clean#readme)
-    
+    -   See also [Quarto revealjs presentation theme generator](https://quarto.org/docs/presentations/revealjs/)
+-   Use AI to write CSS and javascript for customisation
+
 ## Positron
 
 -   Documentation on hover
