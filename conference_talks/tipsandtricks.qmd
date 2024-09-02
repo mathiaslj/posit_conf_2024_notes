@@ -15,13 +15,9 @@ title: "Miscellaneous tips and tricks learnt from conference"
 -   Refer to links to help it along if you already know something about the subject, you are asking about
 -   For data storytelling: Give context such as *"You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better.* **Other details of model and what an inputted plot shows.** *Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.*
 
-## General package development
+## DuckDB
 
--   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
--   Ressources:
-    -   https://r-pkgs.org/
-    -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
-    -   [Tidyverse style guide](https://style.tidyverse.org/)
+See the notes on [duckplyr](keynotes/04duckdb.qmd#sec:duckplyr).
 
 ## API usage
 
@@ -77,7 +73,7 @@ Use templates!
         -   Can be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style
         -   See how other people's websites are structured
 
-### Miscellaneous other notes
+### Miscellaneous other quarto notes
 
 -   `_common.R` file in project that sets `options(...)`, `knitr::opts_chunk$set(...)`, [theme_set](https://ggplot2.tidyverse.org/reference/theme_get.html) and [update_geom_defaults](https://ggplot2.tidyverse.org/reference/update_defaults.html) 
 -   Look into [execution management with freeze(:auto)](https://quarto.org/docs/projects/code-execution.html#freeze)
@@ -91,6 +87,14 @@ Use templates!
 -   "Enable Rstudio key mappings in Positron" setting available
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
+    
+## General package development
+
+-   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
+-   Ressources:
+    -   https://r-pkgs.org/
+    -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
+    -   [Tidyverse style guide](https://style.tidyverse.org/)
     
 ## Other
 

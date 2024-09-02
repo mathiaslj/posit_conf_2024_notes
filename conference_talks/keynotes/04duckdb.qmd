@@ -1,0 +1,61 @@
+---
+title: "Data Wrangling [for Python or R] Like a Boss With DuckDB"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004520570001r6eL)
+
+Speaker: Hannes Mühleisen
+
+## Session description
+
+*In the hype cycle of data science, I suggest that the "peak of inflated expectations" was in 2012, the "trough of disillusionment" was in 2016, and since then, we have climbed the "slope of enlightenment". Now, as we approach the "plateau of productivity", it's a good time to figure out how we got here and what future we want. Can we use data to answer questions, resolve debates, and make better decisions? What tools and processes make data science work? What can we learn when it does, and what goes wrong when it doesn't? In this talk, I will present my answers, and then I would like to hear yours.*
+
+## Session notes
+
+New data management system that seeks to not be *"slower and more frustrating than to read into memory"* with focus on performance as well as the user experience.
+
+-   Is **in-process**: *"Running in R, Python, or whatever, with a DuckDB connection, it means that the entire code of the data management system actually runs within that process"*
+    -   Since running within the R process, can take in data.frame/parquet/..., perform actions and give back the same type seamlessly
+    -   Is in contrast to **client-server**
+-   Automatically parallelises analyses tasks to available cores
+    -   Still ensures high per-core efficiency with C++ implementations
+-   If data does not fit in memory, it uses the hard disc
+-   DuckDB can read and write most file types - including parquet files
+
+### [Duckplyr](https://github.com/tidyverse/duckplyr) {#sec:duckplyr}
+
+Directly replaces `dplyr`, utilising the exact same syntax.
+
+-   Is the fastest of all solution for doing actions like joins, group-bys, etc.
+    -   Utilises *holistic optimisation* to derive which columns are gonna be used, which rows can be pruned early, etc. by creating a hierarchy of actions in a query and parallelisation tasks most efficiently
+        -   To do holistic optimisation, `duckplyr` objects need to be lazy, but also need to be non-lazy (otherwise fx. `ggplot` will not be able to work with them) - found a solution where they look like non-lazy objects that look "normal", but behind the scenes `duckplyr` uses them lazily to optimise calculations
+-   Will fall back to `dplyr` if any issues
+    -   User will not be affected - either it's faster than `dplyr` and otherwise it's just the same as using `dplyr`
+
+### `.duckdb` files
+
+-   `.duckdb` file format which can be thought of like a zip file - it can contain several data sets
+    -   Data can be manipulated in the file to have logic of the queries directly
+    -   Can `CREATE MACRO` to use inside the file for data wrangling
+    
+### Is big data dead?
+
+The rate at which we can produce data is much slower (of course there is automatically collected data, but it tends to be less valuable and with lots of repetition) than the rate at which our computing units are improving. Speed and size of CPUs, SSDs in current computers are increasing rapidly.
+
+Hannes recommends the blog post [Redshift Files: the Hunt for Big Data](https://motherduck.com/blog/redshift-files-hunt-for-big-data/) that talks about paper from Amazon that have confirmed that from the data sits they see, we are close to *data singularity* (loosely defined in the talk as 99% of data is "processable" on a single computer).
+
+#### Save costs without compromising on speed with single node(/machine) using DuckDB {#sec:save_single_node}
+
+DuckDB run on single node is faster than [Apache Spark](https://spark.apache.org/) with arbitrarily many clusters (still slower with 1024 computers) as seen below - due to inefficient core performance, coordination cost and distribution of systems
+
+![Comparison with: 32 cores of CPU, 64GB RAM per node. Processing: Data of size 40GB. Performance of DuckDB shows run on single node, while graph shows performance of Apache Spark with various cluster sizes](../../duck_vs_spark.PNG)
+
+**Conclusion:** We risk spending A LOT of money (and CO_2_) to run many computers in a cluster, though a single computer is enough
+
+### Extensions
+
+Recently opened for community created extensions to be added to DuckDB
+
+### Solution for many concurrent users
+
+*"[MotherDuck](https://motherduck.com/) is a collaborative data warehouse that extends the power of DuckDB to the cloud."*
