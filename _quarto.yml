@@ -7,12 +7,8 @@ website:
   title: "posit::conf(2024)"
   repo-url: https://github.com/mathiaslj/posit_conf_2024_notes
   repo-actions: [source]
-  bread-crumbs: false
   back-to-top-navigation: true
-  page-footer: 
-    right:
-      - icon: github
-        href: https://github.com/mathiaslj/posit_conf_2024_notes
+  bread-crumbs: false
   navbar:
     right: 
       - icon: github
@@ -41,6 +37,6 @@ website:
 format:
   html:
     theme: 
-      - cosmo
+      - flatly
       - styles.scss
     toc: true
