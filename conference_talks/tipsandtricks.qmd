@@ -5,8 +5,14 @@ title: "Miscellaneous tips and tricks learnt from conference"
 ## Use of AI
 
 -   See section [What's new - AI tools](whats_new.qmd#sec:whats_new-AI_tools) for notes on AI tools.
+-   See the [chattr R package](https://github.com/mlverse/chattr)
+
+### Prompt engineering
+
 -   Use single detailed prompts "built" layer by layer.
     -   Approach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.
+-   Refer to links to help it along if you already know something about the subject, you are asking about
+-   For data storytelling: Give context such as *"You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better.* **Other details of model and what an inputted plot shows.** *Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.*
 
 ## General package development
 
