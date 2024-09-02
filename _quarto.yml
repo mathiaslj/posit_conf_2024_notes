@@ -5,7 +5,9 @@ project:
 
 website:
   title: "posit::conf(2024)"
-  page-navigation: true
+  bread-crumbs: false
+  back-to-top-navigation: true
+  reader-mode: true
   navbar:
     left:
       - href: index.qmd
@@ -17,6 +19,7 @@ website:
     - id: conference_talks
       title: Conference talks
       style: "docked"
+      collapse-level: 1
       contents: 
         - section: "Takeaways"
           contents:

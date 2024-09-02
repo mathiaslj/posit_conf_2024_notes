@@ -8,9 +8,9 @@ Speaker: Hannes Mühleisen
 
 ## Session description
 
-*In the hype cycle of data science, I suggest that the "peak of inflated expectations" was in 2012, the "trough of disillusionment" was in 2016, and since then, we have climbed the "slope of enlightenment". Now, as we approach the "plateau of productivity", it's a good time to figure out how we got here and what future we want. Can we use data to answer questions, resolve debates, and make better decisions? What tools and processes make data science work? What can we learn when it does, and what goes wrong when it doesn't? In this talk, I will present my answers, and then I would like to hear yours.*
+*Data wrangling is the thorny hedge that higher powers have placed in front of the enjoyable task of actually analyzing or visualizing data. Common struggles come from importing data from ill-mannered CSV files, the tedious task of orchestrating efficient data transformation, or the inevitable management of changes to tables. Data wrangling is rife with questionable ad-hoc solutions, which can sometimes even make things worse. The design rationale of DuckDB is to support the task of data wrangling by bringing the best of decades of data management research and best practices to the world of interactive data analysis in R or Python. For example, DuckDB has one of the world's most advanced CSV reader, native support for Parquet files and Arrow structures, an efficient parallel vectorized query processing engine, and support for efficient atomic updates to tables. All of this is wrapped up in a zero-dependency package available in a programming language near you for free. In my talk, I will discuss the above as well as the design rationale of DuckDB, which was designed and built in collaboration with the Data Science community in the first place.*
 
-## Session notes
+## Session notes 
 
 New data management system that seeks to not be *"slower and more frustrating than to read into memory"* with focus on performance as well as the user experience.
 
