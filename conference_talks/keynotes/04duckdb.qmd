@@ -48,9 +48,9 @@ Hannes recommends the blog post [Redshift Files: the Hunt for Big Data](https://
 
 DuckDB run on single node is faster than [Apache Spark](https://spark.apache.org/) with arbitrarily many clusters (still slower with 1024 computers) as seen below - due to inefficient core performance, coordination cost and distribution of systems
 
-![Comparison with: 32 cores of CPU, 64GB RAM per node. Processing: Data of size 40GB. Performance of DuckDB shows run on single node, while graph shows performance of Apache Spark with various cluster sizes](../../duck_vs_spark.PNG)
+![Comparison with: 32 cores of CPU, 64GB RAM per node. Processing: Data of size 40GB. Performance of DuckDB shows run on single node, while graph shows performance of Apache Spark with various cluster sizes](../../images/duck_vs_spark.JPG)
 
-**Conclusion:** We risk spending A LOT of money (and CO_2_) to run many computers in a cluster, though a single computer is enough
+**Conclusion:** We risk spending A LOT of money (and CO~2~) to run many computers in a cluster, though a single computer is enough in many cases
 
 ### Extensions
 
