@@ -95,6 +95,7 @@ Legal and security have many arguments against using proprietary data with an AP
 
 -   Create a plot of [Shapley values](https://christophm.github.io/interpretable-ml-book/shapley.html)
 -   Full prompt to AI gives context: *"You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better.* **Other details of model and what Shapley values are and how they are presented in the plot.** *Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.*
+-   Parametrise the AI prompt by using gemini API in R using [`reticulate::import`](https://rstudio.github.io/reticulate/reference/import.html) to import the `vertexai` Python library - see [the code from the Jupyter notebook used to produce the slides](https://github.com/alokpattani/gcp-datascience/blob/master/olympics-medals-analysis/predict_and_genai_analyze_olympics_medals_by_country.ipynb?short_path=c668331#L182)
 
 ##### Summarise information of prediction vs. actual outcome
 

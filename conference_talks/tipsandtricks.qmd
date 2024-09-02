@@ -6,6 +6,7 @@ title: "Miscellaneous tips and tricks learnt from conference"
 
 -   See section [What's new - AI tools](whats_new.qmd#sec:whats_new-AI_tools) for notes on AI tools.
 -   See the [chattr R package](https://github.com/mlverse/chattr)
+-   Parametrise AI prompts using APIs
 
 ### Prompt engineering
 
