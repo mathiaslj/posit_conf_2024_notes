@@ -1,0 +1,624 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "posit::conf(2024) conference notes",
+    "section": "",
+    "text": "This Quarto website is home to private notes from workshop and attended conference talks.\nLinks:\n\nConference portal\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html",
+    "href": "conference_talks/tipsandtricks.html",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "",
+    "text": "See section What’s new - AI tools for notes on AI tools.\nSee the chattr R package\nParametrise AI prompts using APIs\n\n\n\n\nUse single detailed prompts “built” layer by layer.\n\nApproach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.\n\nRefer to links to help it along if you already know something about the subject, you are asking about\nFor data storytelling: Give context such as “You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better. Other details of model and what an inputted plot shows. Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#use-of-ai",
+    "href": "conference_talks/tipsandtricks.html#use-of-ai",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "",
+    "text": "See section What’s new - AI tools for notes on AI tools.\nSee the chattr R package\nParametrise AI prompts using APIs\n\n\n\n\nUse single detailed prompts “built” layer by layer.\n\nApproach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.\n\nRefer to links to help it along if you already know something about the subject, you are asking about\nFor data storytelling: Give context such as “You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better. Other details of model and what an inputted plot shows. Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#duckdb",
+    "href": "conference_talks/tipsandtricks.html#duckdb",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "DuckDB",
+    "text": "DuckDB\nSee the notes on duckplyr.",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#api-usage",
+    "href": "conference_talks/tipsandtricks.html#api-usage",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "API usage",
+    "text": "API usage\nUSE APIs!\n\nUse httr2 for HTTP requests\nLook into plumber API package\n\nSee this cheatsheet",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#quarto",
+    "href": "conference_talks/tipsandtricks.html#quarto",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "Quarto",
+    "text": "Quarto\nSee also What’s new - Quarto.\n\nTips working in Quarto\n\nUse quarto preview in terminal to open a tab that will update live when making changes to files.\n\nConfigure which file changes should trigger a re-rendering by using fx. preview: watch: - \"*.qmd\" in the _quarto.yml file.\n\nUse of callouts\n\nCreate custom classes by doing ::: {.new_class} ... ::: and defining the class in the .scss file like .new_class { ... }\n\nUse Quarto listings to create overviews of the available files in a directory\nUse params: at in YAML at top or documents and then reference them using params$\nUse embed to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks\n\nFx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an analyses/ folder and just embed them from there in your other documents. Means there is one source of truth\n\nCan ctrl+V images in visual mode\n\n\n\nFormats\nUse templates!\n\nRevealjs for presentations\n\nSee fx. a minimalist presentation theme for Quarto Reveal.js\nSee also Quarto revealjs presentation theme generator\n\nWebsite for personal note taking: Quarto wiki template to create a Quarto website to host research notes, articles, glossaries, etc.\nWebsite with a blog: Repo for Cynthia Huang’s personal website\nformat: manuscript for research notes\n\nSimilar to website but can be tied up to journal templates\n\n\n\n\nPublishing\n\nUse existing GitHub actions\n\nSee fx. the build_book.yaml action in R for data science.\nSee general quarto actions by quarto_dev\n\nUse pre-render and post-render specified under project in your _quarto.yml file to run code prior to or after rendering the site\n\nCan fx. use post-render to run an R script that uses rsync to “move” the _site folder to a server location for deployment\n\n\n\n\nCustomisation\n\nUse CSS and javascript for customisation\n\nMozilla web docs for help with fx. CSS\nUse AI to help write CSS and javascript\nUse DevTools via right-click -&gt; inspect to look at the HTML\n\nMake changes to see how it affects the website\nCan be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style\nSee how other people’s websites are structured\n\n\n\n\n\nMiscellaneous other quarto notes\n\n_common.R file in project that sets options(...), knitr::opts_chunk$set(...), theme_set and update_geom_defaults\nLook into execution management with freeze(:auto)\nUse of javascript extensions lightbox (allows reader to click image to enlarge) and masonry (grid layout library for customisation of image placements)",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#positron",
+    "href": "conference_talks/tipsandtricks.html#positron",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "Positron",
+    "text": "Positron\n\nDocumentation on hover\nUse Poistron to debug C and C++\nCtrl+shift+P opens command palette\n“Enable Rstudio key mappings in Positron” setting available\nExtensions readily available from Open VSX\n\nContinue for AI code assistant",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#general-package-development",
+    "href": "conference_talks/tipsandtricks.html#general-package-development",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "General package development",
+    "text": "General package development\n\nUse dev_sitrep\nRessources:\n\nhttps://r-pkgs.org/\nWriting R extensions\nTidyverse style guide",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks.html#other",
+    "href": "conference_talks/tipsandtricks.html#other",
+    "title": "Miscellaneous tips and tricks learnt from conference",
+    "section": "Other",
+    "text": "Other\n\nComputational statistics\nThink of computational statistics as way of having only one test contrary to theoretical statistic, where need to think about what is the “right” distribution or test\n\n\n\nRessources\n\nSee the R contributor site to get information on how to contribute to the R project.\nR Consortium Working Groups\nROpenSci",
+    "crumbs": [
+      "Takeaways",
+      "Miscellaneous tips and tricks learnt from conference"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks/positron.html",
+    "href": "conference_talks/tipsandtricks/positron.html",
+    "title": "Working in Positron",
+    "section": "",
+    "text": "Documentation on hover\nUse Poistron to debug C and C++\nCtrl+shift+P opens command palette\n“Enable Rstudio key mappings in Positron” setting available\nExtensions readily available from Open VSX\n\nContinue for AI code assistant\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_knowledge_manage.html",
+    "href": "conference_talks/other_talks/quarto_knowledge_manage.html",
+    "title": "Quarto for Knowledge Management",
+    "section": "",
+    "text": "Session called Level Up Your Data Science Skills, but I only watched the last talk labelled “Quarto for Knowledge Management”.\nLink to video\n\nSession description\nHave you ever considered using the power and flexibility of Quarto for note-taking and knowledge management? I did, and now I use Quarto websites to track my PhD progress, document insights from conferences, manage collaborative research projects, and more. Let me show you how easy it is to implement standard knowledge management system features, such as cross-referencing, search indexing, and custom navigation. But what if you want more advanced features like glossaries, document listings and summaries of datasets? Well, with some creative use of Quarto’s many features and extensions, almost anything is possible. Whether you’re new to Quarto or a seasoned expert, consider adding Quarto to your note-taking toolkit.\n\n\nSession notes\nSee Cynthia’s Quarto wiki template to create a Quarto website to host research notes, articles, glossaries, etc.\nSee Cynthia’s repo for her personal website\nEssence of talk: Have all notes from research gathered in one place, so everything is searchable and reusable.\n\nUse Quarto listings to create overviews of fx. definitions of terms withing different research fields\nTip: Can ctrl+V images in visual mode\nUse of javascript extensions lightbox (allows reader to click image to enlarge) and masonry (grid layout library for customisation of image placements)\nformat: manuscript for research notes\n\nSimilar to website but can be tied up to journal templates\n\n\n\nSeparate repo with images\nCynthia has a separate repo with images that are used across projects, so they are in a central location where they are easily found\n\nReadme is constructed to show all images and where they can be found\n\n\n\n\n\n\n Back to top",
+    "crumbs": [
+      "Other talks",
+      "Quarto for Knowledge Management"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_automated.html",
+    "href": "conference_talks/other_talks/quarto_automated.html",
+    "title": "Automated Reporting With Quarto: Beyond Copy And Paste",
+    "section": "",
+    "text": "Link to video\nSpeakers:",
+    "crumbs": [
+      "Other talks",
+      "Automated Reporting With Quarto: Beyond Copy And Paste"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_automated.html#quarto-ai-and-the-art-of-getting-your-life-back",
+    "href": "conference_talks/other_talks/quarto_automated.html#quarto-ai-and-the-art-of-getting-your-life-back",
+    "title": "Automated Reporting With Quarto: Beyond Copy And Paste",
+    "section": "Quarto, AI, and the Art of Getting Your Life Back",
+    "text": "Quarto, AI, and the Art of Getting Your Life Back\n\nSession description\nAre you tired of dealing with endless server issues and maintenance headaches? Want to reclaim your time for coding, writing, and creating? Join Tyler Morgan-Wall as he shares his journey of switching from the server-based headaches of Wordpress to Quarto, with a little help from AI. This talk will cover the simple trick he used to convert an existing Wordpress blog—complete with custom scripts, styles, and beautiful 3D dataviz content—into a slick Quarto site. He will also demonstrate some lesser-known features of Quarto to automate deploying a website entirely from a Quarto project file. Finally, Tyler will show how he used AI to customize and style his new Quarto site, providing several useful strategies if you decide to get some help from AI on your own Quarto journey.\n\n\nSession notes\n\nCan input HTML directly into quarto documents - Able to migrate blog from Wordpress by copying HTML directly into quarto\nUse pre-render and post-render specified under project in your _quarto.yml file to run code prior to or after rendering the site\n\nCan fx. use post-render to run an R script that uses rsync to “move” the _site folder to a server location for deployment\n\n\n\nStyling quarto documents and using AI\n\nAI is great at writing CSS, so use this for styling. Explain exactly what is needed. Fx. “I want an HTML card that has a slight metallic shimmer animation when I hover over with my mouse, using CSS”\nUse AI to write javascript, which can make HTML dynamic. Fx. Tyler talked about creating a Quarto listing into an image carousel on his blog\nGive it context in form of fx. HTML and/or a screenshot\nIf it gets stuck, ask it to explain what steps are doing, so you yourself can get the understanding to make finishing touches",
+    "crumbs": [
+      "Other talks",
+      "Automated Reporting With Quarto: Beyond Copy And Paste"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_automated.html#beyond-dashboards-dynamic-data-storytelling-with-python-r-and-quarto-emails",
+    "href": "conference_talks/other_talks/quarto_automated.html#beyond-dashboards-dynamic-data-storytelling-with-python-r-and-quarto-emails",
+    "title": "Automated Reporting With Quarto: Beyond Copy And Paste",
+    "section": "Beyond Dashboards: Dynamic Data Storytelling with Python, R, and Quarto Emails",
+    "text": "Beyond Dashboards: Dynamic Data Storytelling with Python, R, and Quarto Emails\n\nSession description\nSean Nguyen challenges the traditional reliance on dashboards for business intelligence, highlighting their shortcomings in delivering prompt insights. He proposes a new strategy that uses Python and R to generate dynamic, customized emails, leveraging Quarto and Posit Connect for seamless automation. This technique ensures the direct and effective delivery of actionable insights to users’ inboxes, enhancing informed decision-making and boosting engagement. Sean’s talk will redefine data delivery methods for optimal impact and encourage a fundamental shift in mindset among data practitioners towards a more engaged and individualized form of data narration.\n\n\nSession notes\nUse scheduled runs of Quarto to send emails.\n\nUse data for logic to decide whether mail should be sent or not\n\nFx. for finance department create logic for whether or not you are over budget. If over budget, send mail with Quarto document that showcases something relevant\n\nUse format: email and :::{.email}:::, :::{.email-scheduled}:::, :::{.subject}:::\nUse params: at in YAML at top or documents and then reference them using params$\n\nFinal structure of qmd file will be: Fetch pinned data -&gt; create analyses from data -&gt; email logic (whether to send or not) -&gt; email content (Hi, give context in text, display analyses)",
+    "crumbs": [
+      "Other talks",
+      "Automated Reporting With Quarto: Beyond Copy And Paste"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_automated.html#creating-reproducible-static-reports",
+    "href": "conference_talks/other_talks/quarto_automated.html#creating-reproducible-static-reports",
+    "title": "Automated Reporting With Quarto: Beyond Copy And Paste",
+    "section": "Creating Reproducible Static Reports",
+    "text": "Creating Reproducible Static Reports\n\nSession description\nIn clinical trials, interdisciplinary teams often discuss outputs using static documents. Orla Doyle’s talk focuses on bringing the advantages of modern tools (R, markdown, git) and software development practices to the production of company documents. She outlines how her team used an object-oriented approach to create classes for report items, complete with a suite of tests, and rendered the final report programmatically in docx format using a company template. This approach allows statisticians to work in a truly end-to-end fashion within a GxP environment, producing a format suitable for interdisciplinary collaboration. The package is currently being piloted internally before release to the open-source community.\n\n\nSession notes\nNovartis created r package to create compliant word documents with sample size calculations.\n\nWord document created using a markdown file with elements of the word document being created using R6 classes (separate classes for fx. title page, tables, etc.)\nUses the officer package",
+    "crumbs": [
+      "Other talks",
+      "Automated Reporting With Quarto: Beyond Copy And Paste"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_automated.html#quarto-a-multifaceted-publishing-powerhouse-for-medical-researchers",
+    "href": "conference_talks/other_talks/quarto_automated.html#quarto-a-multifaceted-publishing-powerhouse-for-medical-researchers",
+    "title": "Automated Reporting With Quarto: Beyond Copy And Paste",
+    "section": "Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers",
+    "text": "Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers\nLink to slides\n\nSession description\nJoshua Cook discusses the slow and cumbersome process of traditional medical research dissemination, which often results in a diverse array of outputs such as reports for sponsors and regulators, manuscripts for peer-reviewed journals, summaries for online platforms, and presentations for conferences. He demonstrates how Quarto can streamline this process by enabling the creation of various polished formats from a single source, while meeting diverse submission requirements. This talk will showcase how Quarto can revolutionize communication in medical research, making it more impactful and accelerating the delivery of treatments to patients.\n\n\nSession notes\n\nUse embed to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks\n\nFx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an analyses/ folder and just embed them from there in your other documents. Means there is one source of truth\nUse execute: freeze: auto in your _quarto.yml file to make it automatically render files only when changes are detected\n\nThis means when you render your documents that embeds analyses, it will not re-render the analysis document unless changes are detected\n\n\nUse templates\n\nSee fx. a minimalist presentation theme for Quarto Reveal.js",
+    "crumbs": [
+      "Other talks",
+      "Automated Reporting With Quarto: Beyond Copy And Paste"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/end_to_end_ds.html",
+    "href": "conference_talks/other_talks/end_to_end_ds.html",
+    "title": "End-To-End Data Science With Real-World Impact",
+    "section": "",
+    "text": "Link to video",
+    "crumbs": [
+      "Other talks",
+      "End-To-End Data Science With Real-World Impact"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/end_to_end_ds.html#modernizing-the-data-science-toolkit-of-a-40-year-old-market-research-company",
+    "href": "conference_talks/other_talks/end_to_end_ds.html#modernizing-the-data-science-toolkit-of-a-40-year-old-market-research-company",
+    "title": "End-To-End Data Science With Real-World Impact",
+    "section": "Modernizing the Data Science Toolkit of a 40-year-old Market Research Company",
+    "text": "Modernizing the Data Science Toolkit of a 40-year-old Market Research Company\n\nSession description\nThis presentation outlines the efforts undertaken by the Decision Sciences and Innovation (DSI; which focuses on statistical consulting and end-to-end quantitative analysis) team at KS&R to modernize their data science toolkit over the past year. The main goals were to foster collaboration, improve our legacy codebase, and deliver high-quality data products. Key topics covered include teamwide adoption of version control and GitHub, building and deploying internal R packages, Quarto-based documentation, and strategies for gaining buy-in across teams and leadership. Attendees can expect practical insights and tools for instigating change in their own organizations.\n\n\nSession notes\n\nImplemented version control and GitHub across the team to improve collaboration and code management.\nDeveloped and deployed internal R packages for streamlined and standardized analysis processes.\nTransitioned to Quarto for comprehensive documentation, improving clarity and accessibility of information.",
+    "crumbs": [
+      "Other talks",
+      "End-To-End Data Science With Real-World Impact"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/end_to_end_ds.html#building-scalable-data-pipelines-through-r-and-global-health-information-systems-api",
+    "href": "conference_talks/other_talks/end_to_end_ds.html#building-scalable-data-pipelines-through-r-and-global-health-information-systems-api",
+    "title": "End-To-End Data Science With Real-World Impact",
+    "section": "Building Scalable Data Pipelines through R and Global Health Information Systems’ API",
+    "text": "Building Scalable Data Pipelines through R and Global Health Information Systems’ API\n\nSession description\nEfficient and scalable analytics workflows are critical for an adaptive and data-driven organization. How can we scale systems to support an office charged with implementing USAID’s $6 billion HIV/AIDS program? Our team leveraged R and global health APIs to build more efficient workflows through automation by developing custom R packages to access health program data. Our investment in creating an automated data infrastructure, with flexible, open-source tools like R, enabled us to build reproducible workflows for analysts in over 50 partner countries. We would like to share our experience in a federal agency integrating APIs with R to develop scalable data pipelines, as inspiration for organizations facing similar resource & data challenges.\n\n\nSession notes\nEssence of talk: Use APIs as much as possible - to get data (fx. from google forms into google sheets directly), create folders, etc.\n\nUse httr2 for HTTP requests\nInternally used packages that were developed in process of streamlining processes\n\nGeneric tools like grabr and GLAMR",
+    "crumbs": [
+      "Other talks",
+      "End-To-End Data Science With Real-World Impact"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/end_to_end_ds.html#sec:TARS",
+    "href": "conference_talks/other_talks/end_to_end_ds.html#sec:TARS",
+    "title": "End-To-End Data Science With Real-World Impact",
+    "section": "Shiny in Action: Transforming Film Production with TARS",
+    "text": "Shiny in Action: Transforming Film Production with TARS\n\nSession description\nBehind every ‘Lights! Camera! Action!’ is a complex choreography of 20+ departments, complicated by the manual creation of 50+ weekly or monthly reports over each production’s 2-3 year span. Our R/Shiny app (“TARS”) streamlines communication and coordination of this process via data integrations, interactive UIs, customizable notifications and reports. This presentation will unpack the layers of our app’s functionality, spotlighting Shiny and R’s pivotal roles in modernizing the business of film production, data confidentiality, and inter-departmental synergy. Developers will learn about methodologies for enhancing data flow, security measures, and custom notifications, offering inspiration for navigating similar challenges.\n\n\nSession notes\nEssence of talk: Shiny CAN deliver production tools on a large scale\nCase: Major US film studio that manually creates large reports - wants to be able to easily create more specialised/targeted reports with a single pathway to update any film data and access reports to ensure a single source of truth.\nSee demo of app at 54:12.\n\nTARS\n\nSingle source of all film data\nAutomated (scheduled) report generator\n\nUsing typst\n\nAccess rights controller\n\nOnly shows relevant data to user",
+    "crumbs": [
+      "Other talks",
+      "End-To-End Data Science With Real-World Impact"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/end_to_end_ds.html#computing-and-recommending-company-wide-employee-training-pair-decisions-at-scale-via-an-ai-matching-and-administrative-workflow-platform",
+    "href": "conference_talks/other_talks/end_to_end_ds.html#computing-and-recommending-company-wide-employee-training-pair-decisions-at-scale-via-an-ai-matching-and-administrative-workflow-platform",
+    "title": "End-To-End Data Science With Real-World Impact",
+    "section": "Computing and Recommending Company-Wide Employee Training Pair Decisions at Scale via an AI Matching and Administrative Workflow Platform",
+    "text": "Computing and Recommending Company-Wide Employee Training Pair Decisions at Scale via an AI Matching and Administrative Workflow Platform\n\nSession description\nRegis A. James developed an innovative tool that automates at-scale generation of high-quality mentor/mentee matches at Regeneron. Built using R, Python, LLMs, shiny, MySQL, Neo4j, JavaScript, CSS, HTML, and bash, it transforms months of manual collaborative work into days. The reticulate, bs4dash, DT, plumber API, dbplyr, and neo4r packages were particularly helpful in enabling its full-stack data science. The patent-pending expert recommendation engine of the AI tool has been successfully used for training a 400-member data science community of practice, and also for larger career development mentoring cohorts for thousands of employees across the company, demonstrating its practical value and potential for wider application.\n\n\nSession notes\nAll about data driven decision making - see this R in Pharma 2021 keynote by Regis\n\nMAGNETRON (Mentoring And Growing NExt-generation Talent at Regeneron OLine)\nAs mentioned in session description is AI tool used to match mentor/mentee pairs. See video for many details.",
+    "crumbs": [
+      "Other talks",
+      "End-To-End Data Science With Real-World Impact"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/04duckdb.html",
+    "href": "conference_talks/keynotes/04duckdb.html",
+    "title": "Data Wrangling [for Python or R] Like a Boss With DuckDB",
+    "section": "",
+    "text": "Link to video\nSpeaker: Hannes Mühleisen",
+    "crumbs": [
+      "Keynotes",
+      "Data Wrangling [for Python or R] Like a Boss With DuckDB"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/04duckdb.html#session-description",
+    "href": "conference_talks/keynotes/04duckdb.html#session-description",
+    "title": "Data Wrangling [for Python or R] Like a Boss With DuckDB",
+    "section": "Session description",
+    "text": "Session description\nData wrangling is the thorny hedge that higher powers have placed in front of the enjoyable task of actually analyzing or visualizing data. Common struggles come from importing data from ill-mannered CSV files, the tedious task of orchestrating efficient data transformation, or the inevitable management of changes to tables. Data wrangling is rife with questionable ad-hoc solutions, which can sometimes even make things worse. The design rationale of DuckDB is to support the task of data wrangling by bringing the best of decades of data management research and best practices to the world of interactive data analysis in R or Python. For example, DuckDB has one of the world’s most advanced CSV reader, native support for Parquet files and Arrow structures, an efficient parallel vectorized query processing engine, and support for efficient atomic updates to tables. All of this is wrapped up in a zero-dependency package available in a programming language near you for free. In my talk, I will discuss the above as well as the design rationale of DuckDB, which was designed and built in collaboration with the Data Science community in the first place.",
+    "crumbs": [
+      "Keynotes",
+      "Data Wrangling [for Python or R] Like a Boss With DuckDB"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/04duckdb.html#session-notes",
+    "href": "conference_talks/keynotes/04duckdb.html#session-notes",
+    "title": "Data Wrangling [for Python or R] Like a Boss With DuckDB",
+    "section": "Session notes",
+    "text": "Session notes\nNew data management system that seeks to not be “slower and more frustrating than to read into memory” with focus on performance as well as the user experience.\n\nIs in-process: “Running in R, Python, or whatever, with a DuckDB connection, it means that the entire code of the data management system actually runs within that process”\n\nSince running within the R process, can take in data.frame/parquet/…, perform actions and give back the same type seamlessly\nIs in contrast to client-server\n\nAutomatically parallelises analyses tasks to available cores\n\nStill ensures high per-core efficiency with C++ implementations\n\nIf data does not fit in memory, it uses the hard disc\nDuckDB can read and write most file types - including parquet files\n\n\nDuckplyr\nDirectly replaces dplyr, utilising the exact same syntax.\n\nIs the fastest of all solution for doing actions like joins, group-bys, etc.\n\nUtilises holistic optimisation to derive which columns are gonna be used, which rows can be pruned early, etc. by creating a hierarchy of actions in a query and parallelisation tasks most efficiently\n\nTo do holistic optimisation, duckplyr objects need to be lazy, but also need to be non-lazy (otherwise fx. ggplot will not be able to work with them) - found a solution where they look like non-lazy objects that look “normal”, but behind the scenes duckplyr uses them lazily to optimise calculations\n\n\nWill fall back to dplyr if any issues\n\nUser will not be affected - either it’s faster than dplyr and otherwise it’s just the same as using dplyr\n\n\n\n\n.duckdb files\n\n.duckdb file format which can be thought of like a zip file - it can contain several data sets\n\nData can be manipulated in the file to have logic of the queries directly\nCan CREATE MACRO to use inside the file for data wrangling\n\n\n\n\nIs big data dead?\nThe rate at which we can produce data is much slower (of course there is automatically collected data, but it tends to be less valuable and with lots of repetition) than the rate at which our computing units are improving. Speed and size of CPUs, SSDs in current computers are increasing rapidly.\nHannes recommends the blog post Redshift Files: the Hunt for Big Data that talks about paper from Amazon that have confirmed that from the data sits they see, we are close to data singularity (loosely defined in the talk as 99% of data is “processable” on a single computer).\n\nSave costs without compromising on speed with single node(/machine) using DuckDB\nDuckDB run on single node is faster than Apache Spark with arbitrarily many clusters (still slower with 1024 computers) as seen below - due to inefficient core performance, coordination cost and distribution of systems\n\n\n\nComparison with: 32 cores of CPU, 64GB RAM per node. Processing: Data of size 40GB. Performance of DuckDB shows run on single node, while graph shows performance of Apache Spark with various cluster sizes\n\n\nConclusion: We risk spending A LOT of money (and CO2) to run many computers in a cluster, though a single computer is enough in many cases\n\n\n\nExtensions\nRecently opened for community created extensions to be added to DuckDB\n\n\nSolution for many concurrent users\n“MotherDuck is a collaborative data warehouse that extends the power of DuckDB to the cloud.”",
+    "crumbs": [
+      "Keynotes",
+      "Data Wrangling [for Python or R] Like a Boss With DuckDB"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/02AI.html",
+    "href": "conference_talks/keynotes/02AI.html",
+    "title": "Practical Tips for using Generative AI in Data Science Workflows",
+    "section": "",
+    "text": "Link to video\nLink to slides\nSpeaker: Melissa Van Bussel",
+    "crumbs": [
+      "Keynotes",
+      "Practical Tips for using Generative AI in Data Science Workflows"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/02AI.html#session-description",
+    "href": "conference_talks/keynotes/02AI.html#session-description",
+    "title": "Practical Tips for using Generative AI in Data Science Workflows",
+    "section": "Session description",
+    "text": "Session description\nNow that we’re a couple of years into the age of Generative AI, it’s clear that this technology has the power to transform the way that we work. As Generative AI continues to evolve, the ways that we use these models should evolve, too. In this talk, we’ll explore how we as data professionals can maximize the benefits of these tools in 2024, and how they can be incorporated into our everyday workflows. We’ll also look at creative use cases that might not seem immediately obvious, but that will allow us to combine Generative AI with other data science tools that we already know and love, like Quarto and Shiny.",
+    "crumbs": [
+      "Keynotes",
+      "Practical Tips for using Generative AI in Data Science Workflows"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/02AI.html#session-notes",
+    "href": "conference_talks/keynotes/02AI.html#session-notes",
+    "title": "Practical Tips for using Generative AI in Data Science Workflows",
+    "section": "Session notes",
+    "text": "Session notes\n\nGPT-4 Capabilities\n\nIntegrates text, audio, and images into one model.\nNow accessible for free.\nUse Cases:\n\nConverting mathematical board work into Quarto documents.\n\n  Transforming image data into CSV files.\n\n\n\nPrompt Engineering\n\nUse single detailed prompts “built” layer by layer.\n\nApproach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.\n\n\n\n\nQuarto revealjs presentation theme generator\n\nCan create nice looking revealjs presentations in quarto with format: revealjs\nTheme generator uses OpenAI API to generate CSS based on description of wanted look of theme\n\n\n\nrecraft.ai\n\nGenerate consistent vector graphics\n\nVector graphics means included flexibility, such as recoloring.\nCreate for package stickers.\n\n\n\n\nscribe\n\nEasily create step-by-step guides.\n\nStart a screen recording, doing whatever should be showcased. The tool will automatically create screenshots and describe steps. Everything can be manually altered afterwards.\n\nCan be embedded as an iframe in a Quarto website.\n\n\n\nDescript for Video and Audio Editing\n\nEdit transcripts like a Word document.\nRegenerate or modify videos using voice clones.\nEnhance videos with eye contact simulation, and remove silence or filler words.\n\n\n\nGuidance for Responsible AI Use\nFollow the “FASTER” principles:\n\nFair: Maintain fairness in AI use.\nAccurate: Ensure outputs are precise.\nSecure: Generalize prompts and avoid uploading sensitive data.\nTransparent: Be clear about AI’s role.\nEducated: Understand AI capabilities and limitations.\nRelevant: Assess whether AI is necessary for the task.",
+    "crumbs": [
+      "Keynotes",
+      "Practical Tips for using Generative AI in Data Science Workflows"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "conference_talks/keynotes/01posit_update.html",
+    "href": "conference_talks/keynotes/01posit_update.html",
+    "title": "Updates from Posit",
+    "section": "",
+    "text": "Link to video\nSpeakers:",
+    "crumbs": [
+      "Keynotes",
+      "Updates from Posit"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/01posit_update.html#session-description",
+    "href": "conference_talks/keynotes/01posit_update.html#session-description",
+    "title": "Updates from Posit",
+    "section": "Session description",
+    "text": "Session description\nPlease join us for our first Posit keynote, where we’ll tell you about our mission, our products, and some of the exciting things we’ve been working on over the last year. Hadley Wickham, Chief Scientist, will talk briefly about Posit’s mission and products, before introducing the three speakers who will update you on some of the coolest projects we’ve worked on over the last year. James Blair, Senior Product Manager, will give you the latest on our partnerships with Databricks and Snowflake, and how we’re building seamless integrations that let you focus on data science instead of dealing with technical details. Charlotte Wickham, Developer Educator, will show you what’s new in Quarto, focusing on new ways to build beautiful PDFs with Typst. Finally, George Stagg, Senior Software Engineer, will tell you about the latest innovations in teaching using webR, a tool that lets you compile your R code into standalone HTML files.",
+    "crumbs": [
+      "Keynotes",
+      "Updates from Posit"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/01posit_update.html#session-notes",
+    "href": "conference_talks/keynotes/01posit_update.html#session-notes",
+    "title": "Updates from Posit",
+    "section": "Session notes",
+    "text": "Session notes\n\nFuture of Quarto\n\nLots new features for quarto dashboards\ntypst for PDF creation rather than LaTeX\n\ntypst ensures transformation of CSS behind HTML to typst properties than ensures HTML and PDF look exactly similar\n\n\n\n\nwebR, shinylive and Quarto live\n\nwebR is a javascript app that allows running of R code directly in browser.\nshinylive is an R package that enables way of running Shiny entirely in a browser using webR.\n\nEmbed shinylive in quarto using quarto extension\n\nQuarto live quarto extension which enables interactive documents and code exercises in quarto documents\n\nOptions of setup blocks, targeted feedback and much more available\nGreat way to create educational material\n\n\n\n\nSnowflake and databricks\n\nInfrastructure management\n\nPosit workbench available in Snowflake marketplace\n\nGive users access to workbench directly through existing Snowflake infrastructure\nVersion of workbench automatically update when new there is new release\nLow maintenance, hands-off approach to give users what they need\n\n\nPosit will work with other cloud data platforms to provide similar experience in other environments\n\n\nData access\n\nNew databricks and snowflake functions in odbc package for easier connections.\nUsers can sign in to databricks or snowflake on Posit workbench, and then workbench will manage credentials on the users behalf.\n\nNo longer have to think about access tokens, passwords - how to manage those, pass them into the connection, etc.\nWorks with odbc but also sparklyr and interaction with spark in databricks\n\n\n\n\nAuthentication in apps\nOne solution is to create service account with an access token that runs the app. However, two limitations:\n\nUsers will see data based on permission set of service account.\nWith number of apps growing, so is number of service account with tokens that need managing\n\nNew solution: Integrated authetication as described above but in Posit Connect - As a viewer, you log in to fx. databricks, and you will then only be able to see data that you are authorised to see through you permissions on your databricks account.",
+    "crumbs": [
+      "Keynotes",
+      "Updates from Posit"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/03data_science_journey.html",
+    "href": "conference_talks/keynotes/03data_science_journey.html",
+    "title": "A future of data science",
+    "section": "",
+    "text": "Link to video\nLink to slides\nSpeaker: Allen Downey",
+    "crumbs": [
+      "Keynotes",
+      "A future of data science"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/03data_science_journey.html#session-description",
+    "href": "conference_talks/keynotes/03data_science_journey.html#session-description",
+    "title": "A future of data science",
+    "section": "Session description",
+    "text": "Session description\nIn the hype cycle of data science, I suggest that the “peak of inflated expectations” was in 2012, the “trough of disillusionment” was in 2016, and since then, we have climbed the “slope of enlightenment”. Now, as we approach the “plateau of productivity”, it’s a good time to figure out how we got here and what future we want. Can we use data to answer questions, resolve debates, and make better decisions? What tools and processes make data science work? What can we learn when it does, and what goes wrong when it doesn’t? In this talk, I will present my answers, and then I would like to hear yours.",
+    "crumbs": [
+      "Keynotes",
+      "A future of data science"
+    ]
+  },
+  {
+    "objectID": "conference_talks/keynotes/03data_science_journey.html#session-notes",
+    "href": "conference_talks/keynotes/03data_science_journey.html#session-notes",
+    "title": "A future of data science",
+    "section": "Session notes",
+    "text": "Session notes\nIf you encounter questions that is not answered, look into ressources/surveys with data that can answer the question.\n\nPeriods in data science “enthusiasm”\nThis talks in its whole revolves around when and why the events on the below image happens:\n\n\n\nTheoretical vs. Computational Statistics\nTheoretical Statistics:\n\nTraditionally (parametric) statistics focused on finding the “right” distribution or test.\n\nComputational Statistics:\n\nDesigned with the idea of “only one test” in mind, reducing the need to find the “right” test.\n\nUses methods like bootstrap sampling to create synthetic samples and analyze data.\n\n\n\nExample: Height Difference Between Men and Women\nBootstrap Sampling:\n\nModel data with bootstrap sampling to create synthetic samples.\nCalculate differences in means across these samples.\nEstimate 95% confidence intervals for the means.\n\nTest on mean is just a t-test. But interested in variability. With stats we need to find the correct test for this, but with computational statistics, we just change our endpoint of the analyses.\n\n\nVisualisation of “There is only one test” in computational statistics",
+    "crumbs": [
+      "Keynotes",
+      "A future of data science"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/ai_not_generated.html",
+    "href": "conference_talks/other_talks/ai_not_generated.html",
+    "title": "This Session Was Not Generated By AI",
+    "section": "",
+    "text": "Link to video",
+    "crumbs": [
+      "Other talks",
+      "This Session Was Not Generated By AI"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/ai_not_generated.html#elevating-enterprise-data-through-open-source-llms",
+    "href": "conference_talks/other_talks/ai_not_generated.html#elevating-enterprise-data-through-open-source-llms",
+    "title": "This Session Was Not Generated By AI",
+    "section": "Elevating Enterprise Data Through Open Source LLMs",
+    "text": "Elevating Enterprise Data Through Open Source LLMs\nLink to slides\n\nSession description\nIn an era where data privacy and security are paramount, many organizations are keen on leveraging Large Language Models (LLMs) in conjunction with their proprietary data without exposing it to third-party services. Recognizing this need, our talk, “Elevating Enterprise Data Through Open Source LLMs,” showcases an approach that integrates the capabilities of Databricks and Posit, enabling businesses to maintain ownership and control over their data and LLMs while delivering value to their customers. The core of our discussion revolves around a system architecture that synergizes the strengths of Databricks and Posit technologies, providing a comprehensive solution for enterprise data and open source LLMs. Databricks is responsible for data management and processing, offering a seamless environment for hosting, serving, and fine-tuning open source LLMs. Keeping data and models in the secure perimeter of Databricks lowers the risk of data exfiltration tremendously, and also benefits from the scalable data processing and machine learning capabilities - including recent acquisition MosaicML - that Databricks delivers. Posit steps in to streamline the process through Posit Workbench, the developer platform for data science with custom integrations for working with Databricks. This allows developers to write, test, and refine their code in a familiar and powerful setting while still being able to access the data, compute and model serving offered by Databricks. In addition, Posit Connect offers an easy to use platform for deploying these applications, ensuring that the end-to-end process, from development to deployment, is efficient, secure, and aligned with enterprise standards.\nAttendees of this talk will gain valuable insights into constructing and deploying LLM-powered applications using their enterprise data. By the end of the session, you will have a clear understanding of how to leverage Databricks for optimal data management and LLM operations, alongside Posit’s streamlined development and deployment processes. This knowledge will empower you to deliver secure, effective, and scalable LLM-powered applications, driving innovation and value from your enterprise data while upholding the highest standards of data privacy and security.\n\n\nSession notes\n\nRAG (Retrieval Augmented Generation)\n\nRetrieval: Set up model to have access to proprietary data, which can be retrieved and used for context\nAugmentation: Model is augmenting answer from “normal” LLM (large language model) using the retrieval property to use whatever data has been made accessible to the model\nGeneration: Produces an answer to a user’s question, a report, etc.\nIn some instances, model does not need to be re-trained when the proprietary data that it can retrieve changes\n\n\n\n\n\n\n\n\nWarning\n\n\n\nLegal and security have many arguments against using proprietary data with an API\n\n\n\nAI chat-bot solution combining Databricks, Posit connect and Shiny conforming with legal and security requirements\n\n\n\nWhat components are required?\n\n\n\nDemo at 10:57 shows solution combining Databricks, Posit connect and Shiny to chat with a chat-bot “as the user”, where the model only has access to what the user has access to\nSee slides 11-14 for more information about the architecture, governance, security and more ressources\n\nSee example below:\n\n\n\n\n\nArchitecture of solution as shown on Slide 11",
+    "crumbs": [
+      "Other talks",
+      "This Session Was Not Generated By AI"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/ai_not_generated.html#using-github-copilot-in-r-shiny-development",
+    "href": "conference_talks/other_talks/ai_not_generated.html#using-github-copilot-in-r-shiny-development",
+    "title": "This Session Was Not Generated By AI",
+    "section": "Using GitHub Copilot in R Shiny Development",
+    "text": "Using GitHub Copilot in R Shiny Development\n\nSession description\nGenerative-AI tools, like the GitHub Copilot, is revolutionizing software development, and R Shiny is no exception. However, some important features of Shiny, including modularization, reactivity, interaction with CSS/JavaScript, and simulation-based testing pose unique opportunities and challenges to the use GitHub Copilot. The talk will start with integrating CoPilot with local and cloud Shiny development environments. Then, it will discuss best practices around context information and prompt engineering to improve the accuracy and specificity of Copilot suggestions. It will then demonstrate how Copilot can assist in various use cases of Shiny development, including UI/UX design, interactions with front-end languages and testing.\n\n\nSession notes\n\nSee the chattr R package, which provides an interface to LLMs directly in the Rstudio IDE\n\n\nPrompt engineering\n\nClear and precise formulations with single question\nLead-in: Write Answer: to make it answer in English rather than code\nRefer to links to help it along if you already know something about the subject, you are asking about\nMake sure to have files open to provide context\nHave documentation for functions before prompting it to write tests, so it has the documentation as context",
+    "crumbs": [
+      "Other talks",
+      "This Session Was Not Generated By AI"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/ai_not_generated.html#uniquely-human-data-storytelling-in-the-age-of-ai",
+    "href": "conference_talks/other_talks/ai_not_generated.html#uniquely-human-data-storytelling-in-the-age-of-ai",
+    "title": "This Session Was Not Generated By AI",
+    "section": "Uniquely Human: Data Storytelling in the Age of AI",
+    "text": "Uniquely Human: Data Storytelling in the Age of AI\n\nSession description\nIn an era of overwhelming data and increasing reliance on AI, the enduring power of human storytelling becomes essential. Our brains are wired for narrative – it evokes emotion, builds connection, and motivates action. Data storytelling marries insightful analysis with captivating narratives that move audiences.\nThis presentation emphasizes the crucial role of data storytelling in an AI-driven world. It explores techniques for crafting impactful narratives from data, balancing human creativity with the speed of AI. The talk also touches on principles of ethical storytelling, highlighting how to build trust and transparency when leveraging AI.\n\n\nSession notes\nEssence of talk: Great storytelling requires context, a great story and impact for the receiver. Examples in talk of AI not being able to understand context - we need humans for great storytelling.",
+    "crumbs": [
+      "Other talks",
+      "This Session Was Not Generated By AI"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/ai_not_generated.html#using-generative-ai-to-increase-the-impact-of-your-data-science-work",
+    "href": "conference_talks/other_talks/ai_not_generated.html#using-generative-ai-to-increase-the-impact-of-your-data-science-work",
+    "title": "This Session Was Not Generated By AI",
+    "section": "Using Generative AI to Increase the Impact of Your Data Science Work",
+    "text": "Using Generative AI to Increase the Impact of Your Data Science Work\nLink to slides\n\nSession description\nOver the past year plus, generative AI has taken the world by storm. While use cases for helping people with writing, code generation, and creative endeavors are abundant, less attention has been paid to how generative AI tools can be used to do new things within data science workflows. This talk will cover how Google’s generative AI models, including Gemini, can be used to help data practitioners work with non-traditional data (text, images, videos) and create multimodal outputs from analysis, increasing the scale, velocity, and impact of data science results. Attendees should expect to come away with ideas of how to apply Google generative AI tools to real-world data science problems in both Python and R.\n\n\nSession notes\n\nGemini\n\nNatively multimodal: Can take in text, audio, video, images, etc.\nSophisticated reasoning: Can give summary based on combination of files/inputs\nRobust ecosystem\n\nExample use case: Get summary of podcast purpose, host personalities, common questions, etc. from inputting 5 episodes.\n\n\nUsing AI to interpret and explain results\nCase: Predict number of medals at the olympics\n\nCreate a description of the prediction for each country with an explanation of the prediction\nPost-olympics: Compare actual medal counts to predictions, and find interesting countries that exceeded expectation or fell short\n\n\nCreate prediction description for each country\n\nCreate a plot of Shapley values\nFull prompt to AI gives context: “You are a data scientist who does a great job of explaining various outputs from data analysis and modeling, including numbers, tables, and plots, to help a more general audience understand your results better. Other details of model and what Shapley values are and how they are presented in the plot. Stick to only the data and information provided in creating your response. Your response should be understandable by a non-technical audience, 100 word or fewer, and in English.\nParametrise the AI prompt by using gemini API in R using reticulate::import to import the vertexai Python library - see the code from the Jupyter notebook used to produce the slides\n\n\n\nSummarise information of prediction vs. actual outcome\nTakes Gemini Pro about 4 minutes to analyse and produce summary across all 200+ countries for 40 languages.",
+    "crumbs": [
+      "Other talks",
+      "This Session Was Not Generated By AI"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/introducing_positron.html",
+    "href": "conference_talks/other_talks/introducing_positron.html",
+    "title": "Introducing Positron",
+    "section": "",
+    "text": "Link to video\nSpeakers:",
+    "crumbs": [
+      "Other talks",
+      "Introducing Positron"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/introducing_positron.html#session-description",
+    "href": "conference_talks/other_talks/introducing_positron.html#session-description",
+    "title": "Introducing Positron",
+    "section": "Session description",
+    "text": "Session description\nPositron is a next generation data science IDE that is newly available to the community for early beta testing. This new IDE is an extensible tool built to facilitate exploratory data analysis, reproducible authoring, and publishing data artifacts. Positron currently supports these data workflows in either or both Python and/or R, and is designed with a forward-looking architecture that can support other data science languages in the future. In this session, learn from the team building Positron about how and why it is designed the way it is, what will feel familiar or new coming from other IDEs, and whether it might be a good fit for your own work.",
+    "crumbs": [
+      "Other talks",
+      "Introducing Positron"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/introducing_positron.html#session-notes",
+    "href": "conference_talks/other_talks/introducing_positron.html#session-notes",
+    "title": "Introducing Positron",
+    "section": "Session notes",
+    "text": "Session notes\nPositron is an IDE (integrated development environment) for data science - more specific than many other IDEs designed for general software engineering.\n\nFeatures\nNew data viewer/explorer\n\nSummary panel\nFilter bar\n\n\n\nHow it works\n\nBuilt on code OSS (from which Visual Studio Code is also built)\nPositron runs R or Python (or other languages) as extensions\n\nIn contrast to Rstudio, which is a single process running R, meaning only R can be run, and when R crashes, so does Rstudio. In positron, a crash of R results in the console restarting rather than breaking down the entire IDE.\n\n\n\nArk\nArk is a Jupyter kernal (computational engine) for running R, which powers auto-complete, diagnostics, execution, debugging, etc. of R code.\nWhen running R code in Positron, Positron communicates a request to Ark, which computes the answer and provides that back to Positron.\n\nJupyter\nJupyter is a multilingual project that can run Julia, Python and R. In an attempt to give a bit of oversimplified understanding to the inexperienced reader (myself), a Jupyter notebook can be though of kind of like an R markdown document, but it offers a more flexible, multilingual environment and a different approach to document structure and execution.\nWhen fx. a Jupyter notebook runs Python code, it uses a Jupyter Python kernel to execute the code.\n\n\n\nCode assistance\n\nUses language server protocol (LSP)\ntree-sitter takes in R code in a project and gives structured representation of code.\n\nProviding tree-sitter with a grammar for a language, it can provide diagnostics, completions, help-on-hover, etc.\n\nGitHub search engine uses tree-sitter, so due to Posit building an R grammar, searches on all R projects are now much better.\n\n\n\n\n\nDebugging\n\nUses debug adapter protocol\nEnables debugging of C and C++ code\n\n\n\n\nFrom Rstudio to Positron\n\nNo need for .Rproj, “Open folder” will set the working directory, open the git pane, etc. that we normally needed an R project in Rstudio to do.\nEasily switch between versions of R (and Python)\n\nrig is used for managing version installation and switching\n\nPositron defaults to blank slate, meaning it does not save workspace, history, etc. on close\nCtrl+shift+P opens command palette\n“Enable Rstudio key mappings in Positron” setting available\nExtensions readily available from Open VSX\n\nContinue for AI code assistant",
+    "crumbs": [
+      "Other talks",
+      "Introducing Positron"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_custom.html",
+    "href": "conference_talks/other_talks/quarto_custom.html",
+    "title": "Pour Some Glitter On It: Custom Quarto Outputs",
+    "section": "",
+    "text": "Link to video",
+    "crumbs": [
+      "Other talks",
+      "Pour Some Glitter On It: Custom Quarto Outputs"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_custom.html#report-design-in-r-small-tweaks-that-make-a-big-difference",
+    "href": "conference_talks/other_talks/quarto_custom.html#report-design-in-r-small-tweaks-that-make-a-big-difference",
+    "title": "Pour Some Glitter On It: Custom Quarto Outputs",
+    "section": "Report Design in R: Small Tweaks that Make a Big Difference",
+    "text": "Report Design in R: Small Tweaks that Make a Big Difference\n\nLink to slides\nLink to GitHub repo\nLink to report examples\n\n\nSession description\nIf you’ve ever tried to improve how your Quarto-based reports look, you probably felt overwhelmed. I’m a data person, you may have thought, not a designer. It’s easy to drown in a sea of design advice, but we at R for the Rest of Us have found that a few small tweaks can make a big difference. In this talk, we will discuss ways that we have learned to make high-quality reports in R. These include ways you can consistently use brand fonts and colors in your report text and in your plots. All of these tweaks are small on their own, but, when combined, have the potential to make a big difference in the quality of your report design.\n\n\nSession notes\n\nDesign matters! Be consistent, create nice layouts, use nice colors\n\n\nTypst components\n\ntypst-show.typ (see simple example here)\n\nTakes variables from a .qmd file (title, parameters, etc. defined in YAML at top of qmd document) and passes them into typst\n\ntypst-template.typ (see simple example here)\n\nUses varaibles defined in typst-show.typ\nSet properties of document, fx. set text(font: \"Open sans\", size: 12pt), set page(...), etc.\nAdd fx. background rectangle with background: place(top, rec(...)) or header with header: ... (refer to fx. title variable defined in typst-show.typ to show in the header)\n\n\n\n\nCreating a layout - adding plots\n\nupdate_geom_defaults function\nPresentation on how to organise multiple plots for parametrised reporting",
+    "crumbs": [
+      "Other talks",
+      "Pour Some Glitter On It: Custom Quarto Outputs"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_custom.html#reproducible-dynamic-and-elegant-books-with-quarto",
+    "href": "conference_talks/other_talks/quarto_custom.html#reproducible-dynamic-and-elegant-books-with-quarto",
+    "title": "Pour Some Glitter On It: Custom Quarto Outputs",
+    "section": "Reproducible, Dynamic, and Elegant Books with Quarto",
+    "text": "Reproducible, Dynamic, and Elegant Books with Quarto\nLink to slides\n\nSession description\nBuilding on my experience writing books with Quarto for various audiences (R learners, statistics learners, and Quarto learners), for various venues (self-published and publisher-published), in various formats (HTML books hosted online and PDF books printed), I will share best practices and tips and tricks for authoring reproducible, dynamic, and elegant books with Quarto. I will also highlight a few features from the recently-released Quarto 1.4 that pertain to books (e.g., flexible and custom cross-references, embedding computations from notebooks, and inline code in multiple languages) as well as share examples of how to make your web-hosted books more interactive with tools like webR and shinylive.\n\n\nSession notes\n\nGood ressources of books to look at for structure (and content)\n\nIntroduction to modern statistics\nR for data science\nQuarto the definitive guide\n\n\n\n\n\n\n\nNote\n\n\n\nNote the above repos at time of writing this does not use typst but does customisation for HTML and PDF separately. Look into typst!\n\n\n\n\nTips for using quarto\n\nUse of callouts\n\nCreate custom classes by doing ::: {.new_class} ... ::: and defining the class in the .scss file like .new_class { ... }\n\n_common.R file in project that sets options(...), knitr::opts_chunk$set(...), theme_set and update_geom_defaults\nUse existing GitHub actions\n\nSee fx. the build_book.yaml action in R for data science.\nSee general quarto actions by quarto_dev",
+    "crumbs": [
+      "Other talks",
+      "Pour Some Glitter On It: Custom Quarto Outputs"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_custom.html#sec:quarto_internal_templates",
+    "href": "conference_talks/other_talks/quarto_custom.html#sec:quarto_internal_templates",
+    "title": "Pour Some Glitter On It: Custom Quarto Outputs",
+    "section": "Designing and Deploying Internal Quarto Templates",
+    "text": "Designing and Deploying Internal Quarto Templates\n\nSession description\nQuarto is a game-changer for creating reproducible, parameterized documents. But the beauty of Quarto—that it has so many different use cases with various output formats—can lead to disarray with numerous .qmd files floating around an organization and too much copy-paste when creating something new. Quarto templates are perfect for easing the burden of developing a report and instead standardizing the structure, style, and initial content of your projects, no matter the output format. We’ll discuss tips and tricks for implementing enough html and css to create beautiful documents that match your organization’s branding and also explore how easy it can be to deploy those Quarto templates with a single function within an internal R package.\n\n\nSession notes\nFirstly, a link to a written blog post about this talk\nEssence of talk: In the quarto docs exists guides for creating public templates. This talk focuses on how to create internal templates for use in corporations.\n\nUse DevTools via right-click -&gt; inspect to look at the HTML\n\nMake changes to see how it affects the website\nCan be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style\nSee how other people’s websites are structured\n\nMozilla web docs for help with fx. CSS\nUse of internal packages to streamline process of creating and using templates\n\nFx. function create_zelus_html to create project with files needed for template",
+    "crumbs": [
+      "Other talks",
+      "Pour Some Glitter On It: Custom Quarto Outputs"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/quarto_custom.html#closeread-bringing-scrollytelling-to-quarto",
+    "href": "conference_talks/other_talks/quarto_custom.html#closeread-bringing-scrollytelling-to-quarto",
+    "title": "Pour Some Glitter On It: Custom Quarto Outputs",
+    "section": "Closeread: Bringing Scrollytelling to Quarto",
+    "text": "Closeread: Bringing Scrollytelling to Quarto\n\nSession description\nScrollytelling is a style of web design that transitions graphics and text as a user scrolls, allowing stories to progress naturally. Despite its power, scrollytelling typically requires specialist web dev skills beyond the reach of many data scientists. Closeread is a Quarto extension that makes a wide range of scrollytelling techniques available to authors without traditional web dev experience, with support for cross-fading plots, graphics and other chunk output alongside narrative content. You can zoom in on poems, prose and images, as well as highlighting important phrases of text.\nFinally, Closeread allows authors with experience in Observable JS to write their own animated graphics that update smoothly as scrolling progresses.\n\n\nSession notes\nDid not watch this session.",
+    "crumbs": [
+      "Other talks",
+      "Pour Some Glitter On It: Custom Quarto Outputs"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/strenghtening_r_ecosystem.html",
+    "href": "conference_talks/other_talks/strenghtening_r_ecosystem.html",
+    "title": "Strengthening the R ecosystem",
+    "section": "",
+    "text": "Link to video\nSpeakers:",
+    "crumbs": [
+      "Other talks",
+      "Strengthening the R ecosystem"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/strenghtening_r_ecosystem.html#years-of-reading-data-into-r",
+    "href": "conference_talks/other_talks/strenghtening_r_ecosystem.html#years-of-reading-data-into-r",
+    "title": "Strengthening the R ecosystem",
+    "section": "20+ Years of Reading Data into R",
+    "text": "20+ Years of Reading Data into R\n\nSession description\nFor the last 20+ years, I’ve been reading data into R. It all started with the humble scan() function. Then, I used fancy new-fangled file formats, such as parquet and arrow, before progressing onto trendy databases, such as duckdb, for analytics. Besides the fun you can have by messing around with new technologies, when should you consider the above formats? In this talk, I’ll cover a variety of methods for importing data and highlight the good, the bad, and the annoying.\n\n\nSession notes\nEssence of talk: csv just works and it will probably work for a long time out in the future - don’t overcomplicate file formats when small sizes of data. For big data: Use parquet from arrow or nanoparquet.\n\nParquet\n\nUses metadata to save data smartly. Fx. c(4,4,4,4,4,1,2,2,2,2) parquet reads as “5 times 4, 1 times 1, 4 times 2”, in addition many more features\nSize of parquet files usually bit smaller than RDS, but biggest gain is in read/write speed\narrow/nanoparquet tries as much as possible to do calculations on file rather than in memory\n\n\n\nDuckDB\nLoad data (in csv/parquet/whatever) into DuckDB (think of it as a cache) and use dplyr/duckplyr for fast queries.",
+    "crumbs": [
+      "Other talks",
+      "Strengthening the R ecosystem"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/strenghtening_r_ecosystem.html#contributing-to-the-r-project",
+    "href": "conference_talks/other_talks/strenghtening_r_ecosystem.html#contributing-to-the-r-project",
+    "title": "Strengthening the R ecosystem",
+    "section": "Contributing to the R Project",
+    "text": "Contributing to the R Project\nSlides: https://github.com/hturner/positconf2024\n\nSessions description\nPosit provides an amazing set of products to support data science, and we will learn about many great packages and approaches from both Posit and the wider community at posit::conf(2024). But underlying it all are a number of open source tools, notably R and Python. How can we contribute to sustaining these open source projects, so that we can continue to use and build on them?\nIn this talk I will address this question in the context of the R project. I will give an overview of the ways we can contribute as individuals or companies/organizations, both financially and in kind. Together we can build a more sustainable future for R!\n\n\nSession notes\nSee the R contributor site to get information on how to contribute to the R project.\n\nContribution oppotunities\nLittle experience:\n\nTranslations\nDocumentation via GitHub\n\nA bit more experience:\n\nCode via R dev container\n\nCan rebuild R with local changes to check if changes works as intended\n\nR Can Use Your Help: Testing R Before Release\n\nUsually major release around April\n\nReporting bugs\n\nBug fixer in R:\n\nReviewing bug reports\n\n\n\nWorking groups\n\nR Contribution Working Group\nForwards\nR Consortium Working Groups, e.g.\n\nMultilingual R Documentation\nR7 Package\nR Repositories",
+    "crumbs": [
+      "Other talks",
+      "Strengthening the R ecosystem"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/strenghtening_r_ecosystem.html#what-i-learned-resurrecting-an-r-package",
+    "href": "conference_talks/other_talks/strenghtening_r_ecosystem.html#what-i-learned-resurrecting-an-r-package",
+    "title": "Strengthening the R ecosystem",
+    "section": "What I Learned Resurrecting an R package",
+    "text": "What I Learned Resurrecting an R package\n\nSession description\nWe hear a lot about creating R packages, but R packages don’t last forever on their own. I describe my experience resurrecting rvertnet, an abandoned ropensci project that had become stale on CRAN. I talk about how I found out the package needed a new maintainer, how I took ownership of the package, and how I decided what needed fixing. I discuss several examples of package repairs I implemented, including fixing outdated CI, removing unnecessary files and dependencies, writing workarounds for deprecated functions, and fixing building of a vignette. Finally, I’ll describe my positive experiences communicating with the old maintainer and submitting a package to CRAN for the first time.\n\n\nSession notes\n\nContact the old maintainer to hear status and potentially suggest taking over the maintainer role\nCheck through history in documentation, NEWS, issues, PRs, etc.\nTake a long time to just understand the code\nFirst goal: Get to minimal working state\n\n\nDeveloping the package\n\nUse dev_sitrep\nRessources:\n\nhttps://r-pkgs.org/\nWriting R extensions\nTidyverse style guide",
+    "crumbs": [
+      "Other talks",
+      "Strengthening the R ecosystem"
+    ]
+  },
+  {
+    "objectID": "conference_talks/other_talks/strenghtening_r_ecosystem.html#building-sustainable-open-source-ecosystems-lessons-from-the-rstats-community-and-an-nsf-grant",
+    "href": "conference_talks/other_talks/strenghtening_r_ecosystem.html#building-sustainable-open-source-ecosystems-lessons-from-the-rstats-community-and-an-nsf-grant",
+    "title": "Strengthening the R ecosystem",
+    "section": "Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant",
+    "text": "Building Sustainable Open Source Ecosystems: Lessons From the #rstats Community and an NSF Grant\n\nSession description\nThe blessing and the curse of open-source software is that it lacks the infrastructure of a corporation. It can often be difficult to ensure that projects have stability and longevity. In this talk, I will discuss ongoing work on an NSF “Pathways in Open-Source Ecosystems” grant focused on the {data.table} package. Like many R packages, {data.table} has incredible functionality and thousands of users - but no cohesive community or governance structure to support it long-term. We are working to build this ecosystem. I will provide my advice and insight for key aspects of a sustainable open-source project: Engaging casual users, supporting developers, generating content, emphasizing education, and creating a home base for the community.\n\n\nSession notes\nEssence of talk: Don’t be afraid to contribute - make issues on GitHub, write blogs about the work you do, etc.\nSuggests watching The unreasonable effectiveness of public work - David Robinson - Rstudio conference 2019",
+    "crumbs": [
+      "Other talks",
+      "Strengthening the R ecosystem"
+    ]
+  },
+  {
+    "objectID": "conference_talks/tipsandtricks/quarto.html",
+    "href": "conference_talks/tipsandtricks/quarto.html",
+    "title": "Working with quarto",
+    "section": "",
+    "text": "Use quarto preview in terminal to open a tab that will update live when making changes to files.\n\nConfigure which file changes should trigger a re-rendering by using fx. preview: watch: - \"*.qmd\" in the _quarto.yml file.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "conference_talks/whats_new.html",
+    "href": "conference_talks/whats_new.html",
+    "title": "What’s new",
+    "section": "",
+    "text": "typst for PDF creation with exact look of HTML\n\nSee brief intro to typst components in these notes for talk Report Design in R: Small Tweaks that Make a Big Difference\nAppsilon used typst for automatic report generation in their TARS tool, which was talked about in the talk Shiny in Action: Transforming Film Production with TARS\n\nQuarto live for interactive documents and code exercises to create educational content",
+    "crumbs": [
+      "Takeaways",
+      "What's new"
+    ]
+  },
+  {
+    "objectID": "conference_talks/whats_new.html#sec:what_new-quarto",
+    "href": "conference_talks/whats_new.html#sec:what_new-quarto",
+    "title": "What’s new",
+    "section": "",
+    "text": "typst for PDF creation with exact look of HTML\n\nSee brief intro to typst components in these notes for talk Report Design in R: Small Tweaks that Make a Big Difference\nAppsilon used typst for automatic report generation in their TARS tool, which was talked about in the talk Shiny in Action: Transforming Film Production with TARS\n\nQuarto live for interactive documents and code exercises to create educational content",
+    "crumbs": [
+      "Takeaways",
+      "What's new"
+    ]
+  },
+  {
+    "objectID": "conference_talks/whats_new.html#sec:whats_new-AI_tools",
+    "href": "conference_talks/whats_new.html#sec:whats_new-AI_tools",
+    "title": "What’s new",
+    "section": "AI tools",
+    "text": "AI tools\n\nrecraft.ai to generate consistent vector graphics - great for package stickers\nscribe to easily create step-by-step tutorials\ndescript to modify video and audio recordings from transcript\n\nFeatures besides editing the video through transcript include modifying voice, remove silence, filler words, create eye contact and more",
+    "crumbs": [
+      "Takeaways",
+      "What's new"
+    ]
+  },
+  {
+    "objectID": "conference_talks/whats_new.html#positron",
+    "href": "conference_talks/whats_new.html#positron",
+    "title": "What’s new",
+    "section": "Positron",
+    "text": "Positron\n\nPositron runs R as an extension, meaning that a crash in R does not result in a restart of the entire IDE (like in Rstudio), but rather that the console restarts\nCan debug C and C++ code\nExtensions readily available from Open VSX\n\nContinue for AI code assistant",
+    "crumbs": [
+      "Takeaways",
+      "What's new"
+    ]
+  },
+  {
+    "objectID": "conference_talks/whats_new.html#corporate-specific",
+    "href": "conference_talks/whats_new.html#corporate-specific",
+    "title": "What’s new",
+    "section": "Corporate specific",
+    "text": "Corporate specific\n\nSingle node DuckDB\nRead notes on Save costs without compromising on speed with single node(/machine) using DuckDB.\n\n\nDatabricks\n\nSee notes for talk Elevating Enterprise Data Through Open Source LLMs at AI chat-bot solution combining Databricks, Posit connect and Shiny conforming with legal and security requirements\nSee package brickster\n\n\n\nPosit Workbench and Cloud - Data access and user authentication\n\nAbility to sign into organisation’s cloud data platform like snowflake or databricks in Posit Workbench AND Posit Connect\n\nUsers no longer have to think about managing access tokens to pass them to connections when working in workbench\nAuthentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform\n\n\n\n\nQuarto templates\nSee notes from the talk Designing and Deploying Internal Quarto Templates",
+    "crumbs": [
+      "Takeaways",
+      "What's new"
+    ]
+  }
+]
