@@ -8,7 +8,7 @@ Session called *Level Up Your Data Science Skills*, but I only watched the last 
 
 ### Session description
 
-*Cynthia Huang explores the versatility of Quarto for knowledge management and note-taking, sharing her experience using Quarto websites to track PhD progress, document insights from conferences, and manage collaborative research projects. This session demonstrates how to implement standard knowledge management features such as cross-referencing, search indexing, and custom navigation within Quarto. Cynthia also delves into more advanced features like glossaries, document listings, and dataset summaries, showing how Quarto’s flexibility can meet diverse needs. Whether you are new to Quarto or an experienced user, this talk will inspire you to consider Quarto for your own knowledge management system.*
+*Have you ever considered using the power and flexibility of Quarto for note-taking and knowledge management? I did, and now I use Quarto websites to track my PhD progress, document insights from conferences, manage collaborative research projects, and more. Let me show you how easy it is to implement standard knowledge management system features, such as cross-referencing, search indexing, and custom navigation. But what if you want more advanced features like glossaries, document listings and summaries of datasets? Well, with some creative use of Quarto's many features and extensions, almost anything is possible. Whether you're new to Quarto or a seasoned expert, consider adding Quarto to your note-taking toolkit.*
 
 ### Session notes
 

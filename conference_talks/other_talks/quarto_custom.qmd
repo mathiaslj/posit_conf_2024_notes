@@ -2,7 +2,7 @@
 title: "Pour Some Glitter On It: Custom Quarto Outputs"
 ---
 
-[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004041983001s1h4)"
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004041983001s1h4)
 
 ## Report Design in R: Small Tweaks that Make a Big Difference
 
@@ -12,7 +12,7 @@ title: "Pour Some Glitter On It: Custom Quarto Outputs"
 
 ### Session description
 
-*Improving the aesthetics of your Quarto-based reports can feel overwhelming, especially if you don't consider yourself a designer. David Keyes from R for the Rest of Us shares simple yet effective tweaks to enhance the visual quality of reports in R. This talk covers practical techniques for consistently applying brand fonts and colors in both text and plots, which, while individually small, collectively elevate the overall design of your reports. Attendees will leave with actionable tips that can significantly enhance the professionalism and clarity of their report presentations.*
+*If you've ever tried to improve how your Quarto-based reports look, you probably felt overwhelmed. I'm a data person, you may have thought, not a designer. It's easy to drown in a sea of design advice, but we at R for the Rest of Us have found that a few small tweaks can make a big difference. In this talk, we will discuss ways that we have learned to make high-quality reports in R. These include ways you can consistently use brand fonts and colors in your report text and in your plots. All of these tweaks are small on their own, but, when combined, have the potential to make a big difference in the quality of your report design.*
 
 ### Session notes
 
@@ -38,7 +38,7 @@ title: "Pour Some Glitter On It: Custom Quarto Outputs"
 
 ### Session description
 
-*Drawing on her extensive experience in authoring books with Quarto for different audiences and formats, Mine Cetinkaya-Rundel provides a comprehensive guide to creating reproducible, dynamic, and visually appealing books. The session covers best practices for Quarto book projects, including features from the latest Quarto release (1.4) such as flexible cross-references, embedding computations, and inline code in multiple languages. Mine also demonstrates how to enhance the interactivity of web-hosted books using tools like webR and shinylive, making them more engaging for readers.*
+*Building on my experience writing books with Quarto for various audiences (R learners, statistics learners, and Quarto learners), for various venues (self-published and publisher-published), in various formats (HTML books hosted online and PDF books printed), I will share best practices and tips and tricks for authoring reproducible, dynamic, and elegant books with Quarto. I will also highlight a few features from the recently-released Quarto 1.4 that pertain to books (e.g., flexible and custom cross-references, embedding computations from notebooks, and inline code in multiple languages) as well as share examples of how to make your web-hosted books more interactive with tools like webR and shinylive.*
 
 ### Session notes
 
@@ -65,7 +65,7 @@ Note the above repos at time of writing this does not use typst but does customi
 
 ### Session description
 
-*Meghan Hall explores the power of Quarto in creating reproducible, parameterized documents and how to harness this power through internal templates. The session addresses the challenges of managing numerous .qmd files and the inefficiencies of copy-pasting content across projects. Meghan shares tips for developing Quarto templates that standardize structure, style, and initial content, ensuring consistency with organizational branding. Additionally, she demonstrates how to deploy these templates efficiently within internal R packages, streamlining document creation and fostering consistency across projects.*
+*Quarto is a game-changer for creating reproducible, parameterized documents. But the beauty of Quarto—that it has so many different use cases with various output formats—can lead to disarray with numerous .qmd files floating around an organization and too much copy-paste when creating something new. Quarto templates are perfect for easing the burden of developing a report and instead standardizing the structure, style, and initial content of your projects, no matter the output format. We’ll discuss tips and tricks for implementing enough html and css to create beautiful documents that match your organization’s branding and also explore how easy it can be to deploy those Quarto templates with a single function within an internal R package.*
 
 ### Session notes
 
@@ -85,7 +85,9 @@ Firstly, [a link to a written blog post about this talk](https://meghan.rbind.io
 
 ### Session description
 
-*Andrew Bray introduces "Closeread," a Quarto extension designed to bring the powerful web design technique of scrollytelling to a broader audience of data scientists. Scrollytelling allows for a seamless narrative flow as graphics and text transition while a user scrolls. Closeread makes it easier to implement this technique without needing extensive web development skills, supporting cross-fading plots, graphics, and narrative content. The session also covers how users can zoom in on specific content and highlights the ability for advanced users to incorporate custom animations using Observable JS, enriching the storytelling experience.*
+*Scrollytelling is a style of web design that transitions graphics and text as a user scrolls, allowing stories to progress naturally. Despite its power, scrollytelling typically requires specialist web dev skills beyond the reach of many data scientists. Closeread is a Quarto extension that makes a wide range of scrollytelling techniques available to authors without traditional web dev experience, with support for cross-fading plots, graphics and other chunk output alongside narrative content. You can zoom in on poems, prose and images, as well as highlighting important phrases of text.*
+
+*Finally, Closeread allows authors with experience in Observable JS to write their own animated graphics that update smoothly as scrolling progresses.*
 
 ### Session notes
 
