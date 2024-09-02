@@ -72,6 +72,9 @@ Use templates!
         -   Make changes to see how it affects the website
         -   Can be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style
         -   See how other people's websites are structured
+-   Include `.scss` files in `theme`
+    -   Use `layer boundaries (/*-- scss:defaults --*/, /*-- scss:rules --*/, /*-- scss:mixins --*/, /*-- scss:functions --*/, or /*-- scss:uses --*/)`
+        -   Use `/*-- scss:defaults --*/` to define variables that can be referenced in the rules - like fx. colors
 
 ### Miscellaneous other quarto notes
 

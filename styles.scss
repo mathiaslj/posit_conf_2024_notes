@@ -1,12 +1,16 @@
+/*-- scss:defaults --*/
+$bar-color1: #eee;
+$bar-color2: #f8f8f8;
+
 /*-- scss:rules --*/
 
 /* Alternating colors for sidebar items within each section */
 #quarto-sidebar .sidebar-item > ul > li:nth-child(even) {
-  background-color: #eee;
+  background-color: $bar-color1;
 }
 
 #quarto-sidebar .sidebar-item > ul > li:nth-child(odd) {
-  background-color: #f8f8f8;
+  background-color: $bar-color2;
 }
 
 /* Boxes of items within each section */
@@ -29,11 +33,11 @@
 
 /* Style for alternating colors of dropdown items */
 .dropdown-menu > li:nth-child(odd) > .dropdown-item {
-  background-color: #eee;
+  background-color: $bar-color1;
 }
 
 .dropdown-menu > li:nth-child(even) > .dropdown-item {
-  background-color: #f8f8f8;
+  background-color: $bar-color2;
 }
 
 /* Optional: Add padding or other styles to improve appearance */
