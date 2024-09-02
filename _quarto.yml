@@ -5,16 +5,22 @@ project:
 
 website:
   title: "posit::conf(2024)"
+  repo-url: https://github.com/mathiaslj/posit_conf_2024_notes
+  repo-actions: [source]
   bread-crumbs: false
   back-to-top-navigation: true
-  reader-mode: true
+  page-footer: 
+    right:
+      - icon: github
+        href: https://github.com/mathiaslj/posit_conf_2024_notes
   navbar:
+    right: 
+      - icon: github
+        href: https://github.com/mathiaslj/posit_conf_2024_notes
     left:
       - href: index.qmd
         text: Home
       - sidebar:conference_talks
-    right:
-      - about.qmd
   sidebar: 
     - id: conference_talks
       title: Conference talks
