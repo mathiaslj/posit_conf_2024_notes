@@ -1,0 +1,67 @@
+---
+title: "End-To-End Data Science With Real-World Impact"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1711986881929001eEbl)
+
+## Modernizing the Data Science Toolkit of a 40-year-old Market Research Company
+
+### Session description
+
+*This presentation by Keaton Wilson outlines the efforts undertaken by the Decision Sciences and Innovation (DSI) team at KS&R to modernize their data science toolkit over the past year. The primary objectives were to enhance collaboration, improve the legacy codebase, and deliver high-quality data products. Key topics include the team-wide adoption of version control and GitHub, building and deploying internal R packages, Quarto-based documentation, and strategies for gaining buy-in across teams and leadership. Attendees will gain practical insights and tools for initiating change within their own organizations.*
+
+### Session notes
+
+-   Implemented version control and GitHub across the team to improve collaboration and code management.
+-   Developed and deployed internal R packages for streamlined and standardized analysis processes.
+-   Transitioned to Quarto for comprehensive documentation, improving clarity and accessibility of information.
+
+## Building Scalable Data Pipelines through R and Global Health Information Systems' API
+
+### Session description
+
+*Karishma Srikanth presents on creating efficient and scalable analytics workflows to support the USAID's $6 billion HIV/AIDS program. Her team utilized R and global health APIs to automate and optimize workflows, developing custom R packages to access health program data. This investment in automated data infrastructure enabled the creation of reproducible workflows for analysts in over 50 partner countries. The session will share valuable lessons from integrating APIs with R to develop scalable data pipelines, offering inspiration for organizations facing similar challenges.*
+
+### Session notes
+
+**Essence of talk:** Use APIs as much as possible - to get data (fx. from google forms into google sheets directly), create folders, etc.
+
+-   Use [httr2](https://httr2.r-lib.org/) for HTTP requests
+-   [Internally used packages](https://usaid-oha-si.r-universe.dev/packages) that were developed in process of streamlining processes
+    -   Generic tools like [grabr](https://usaid-oha-si.r-universe.dev/grabr) and [GLAMR](https://usaid-oha-si.r-universe.dev/glamr)
+
+## Shiny in Action: Transforming Film Production with TARS {#sec:TARS}
+
+### Session description
+
+*Marcin Dubel showcases "TARS," an R/Shiny app designed to streamline film production processes. With over 20 departments involved and 50+ reports generated during each production's 2-3 year span, TARS simplifies coordination through data integration, interactive UIs, and customizable notifications. This presentation will explore the app’s functionality, highlighting the use of Shiny and R to modernize film production management, ensuring data confidentiality, and enhancing inter-departmental communication. Developers will learn about methodologies for improving data flow, implementing security measures, and creating custom notifications to tackle similar challenges in their projects.*
+
+### Session notes
+
+**Essence of talk:** Shiny CAN deliver production tools on a large scale
+
+*Case:* Major US film studio that manually creates large reports - wants to be able to easily create more specialised/targeted reports with a single pathway to update any film data and access reports to ensure a *single source of truth*.
+
+See demo of app at 54:12.
+
+#### TARS
+
+-   Single source of all film data
+-   Automated (scheduled) report generator
+    -   Using typst
+-   Access rights controller
+    -   Only shows relevant data to user
+
+## Computing and Recommending Company-Wide Employee Training Pair Decisions at Scale via an AI Matching and Administrative Workflow Platform
+
+### Session description
+
+*Regis A. James introduces an innovative AI tool developed at Regeneron to automate the generation of mentor/mentee matches at scale. Built using a full stack of technologies including R, Python, LLMs, Shiny, MySQL, and Neo4j, this platform reduces months of manual work into days. The session will discuss the tool’s patent-pending recommendation engine, its successful application in training a 400-member data science community, and its broader potential for career development mentoring across thousands of employees. This talk will inspire organizations to adopt AI-driven solutions for large-scale administrative challenges.*
+
+### Session notes
+
+All about data driven decision making - see this [R in Pharma 2021 keynote by Regis](https://www.youtube.com/watch?v=-R3t00EGlkM)
+
+#### MAGNETRON (Mentoring And Growing NExt-generation Talent at Regeneron OLine)
+
+As mentioned in session description is AI tool used to match mentor/mentee pairs. See video for many details.

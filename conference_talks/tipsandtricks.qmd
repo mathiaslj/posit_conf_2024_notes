@@ -4,7 +4,7 @@ title: "Miscellaneous tips and tricks learnt from conference"
 
 ## Use of AI
 
--   See section [AI tools](whats_new.qmd#whats_new-AI_tools) for notes on AI tools.
+-   See section [What's new - AI tools](whats_new.qmd#sec:whats_new-AI_tools) for notes on AI tools.
 -   Use single detailed prompts "built" layer by layer.
     -   Approach like designing a ggplot: Start with a plot, then layer aesthetics, geometries, facets, and limits.
 
@@ -16,28 +16,65 @@ title: "Miscellaneous tips and tricks learnt from conference"
     -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
     -   [Tidyverse style guide](https://style.tidyverse.org/)
 
+## API usage
+
+USE APIs!
+
+-   Use [httr2](https://httr2.r-lib.org/) for HTTP requests
+-   Look into [plumber](https://www.rplumber.io/) API package
+    -   See [this cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/plumber.pdf)
+
 ## Quarto
 
-### Tips for working in Quarto
+See also [What's new - Quarto](whats_new.qmd#sec:what_new-quarto).
 
--   Use `quarto preview` in terminal to open a tab that will update live when making changes to files.
+### Tips working in Quarto
+
+-   Use [`quarto preview`](https://quarto.org/docs/tools/text-editors.html) in terminal to open a tab that will update live when making changes to files.
     -   Configure which file changes should trigger a re-rendering by using fx. `preview: watch: - "*.qmd"` in the `_quarto.yml` file.
--   Use `pre-render` and `post-render` specified under `project` in your `_quarto.yml` file to run code prior to or after rendering the site
-    -   Can fx. use `post-render` to run an R script that uses `rsync` to "move" the `_site` folder to a server location for deployment
-
-#### Features
-
+-   Use of [callouts](https://quarto.org/docs/authoring/callouts.html)
+    -   Create custom classes by doing `::: {.new_class} ... :::` and defining the class in the `.scss` file like `.new_class { ... }`
 -   Use [Quarto listings](https://quarto.org/docs/websites/website-listings.html) to create overviews of the available files in a directory
 -   Use `params:` at in YAML at top or documents and then reference them using `params$`
 -   Use [`embed`](https://quarto.org/docs/authoring/notebook-embed.html#quarto-documents) to include figures, code or anything else in code chunks from other quarto documents or Jupyter notebooks
     -   Fx. if analyses are performed which are to be used inside both an article and a slide show, save the analyses in an `analyses/` folder and just embed them from there in your other documents. Means there is one source of truth
+-   Can ctrl+V images in visual mode
 
-#### Customisation
+### Formats
 
--   Use templates        
+Use templates!
+
+-   [Revealjs for presentations](https://quarto.org/docs/presentations/revealjs/)
     -   See fx. a [minimalist presentation theme for Quarto Reveal.js](https://github.com/grantmcdermott/quarto-revealjs-clean#readme)
-    -   See also [Quarto revealjs presentation theme generator](https://quarto.org/docs/presentations/revealjs/)
--   Use AI to write CSS and javascript for customisation
+    -   See also [Quarto revealjs presentation theme generator](https://github.com/melissavanbussel/theme-generator)
+-   Website for personal note taking: [Quarto wiki template](https://github.com/cynthiahqy/quarto-wiki-template) to create a Quarto website to host research notes, articles, glossaries, etc.
+-   Website with a blog: [Repo for Cynthia Huang's personal website](https://github.com/cynthiahqy/digital-garden)
+-   [`format: manuscript`](https://quarto.org/docs/manuscripts/) for research notes
+    -   Similar to website but can be tied up to journal templates
+
+### Publishing
+
+-   Use existing GitHub actions
+    -   See fx. the [build_book.yaml](https://github.com/hadley/r4ds/blob/main/.github/workflows/build_book.yaml) action in R for data science.
+    -   See [general quarto actions by quarto_dev](https://github.com/quarto-dev/quarto-actions)
+-   Use `pre-render` and `post-render` specified under `project` in your `_quarto.yml` file to run code prior to or after rendering the site
+    -   Can fx. use `post-render` to run an R script that uses `rsync` to "move" the `_site` folder to a server location for deployment
+
+### Customisation
+
+-   Use CSS and javascript for customisation
+    -   [Mozilla web docs for help with fx. CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+    -   Use AI to help write CSS and javascript
+    -   Use [DevTools](https://developer.chrome.com/docs/devtools) via right-click -> inspect to look at the HTML
+        -   Make changes to see how it affects the website
+        -   Can be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style
+        -   See how other people's websites are structured
+
+### Miscellaneous other notes
+
+-   `_common.R` file in project that sets `options(...)`, `knitr::opts_chunk$set(...)`, [theme_set](https://ggplot2.tidyverse.org/reference/theme_get.html) and [update_geom_defaults](https://ggplot2.tidyverse.org/reference/update_defaults.html) 
+-   Look into [execution management with freeze(:auto)](https://quarto.org/docs/projects/code-execution.html#freeze)
+-   Use of javascript extensions [lightbox](https://quarto.org/docs/output-formats/html-lightbox-figures.html) (allows reader to click image to enlarge) and [masonry](https://github.com/mcanouil/quarto-masonry) (grid layout library for customisation of image placements)
 
 ## Positron
 
@@ -48,6 +85,15 @@ title: "Miscellaneous tips and tricks learnt from conference"
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
     
-## Ressources
+## Other
+
+### Computational statistics
+
+Think of computational statistics as way of having *only one test* contrary to theoretical statistic, where need to think about what is the "right" distribution or test
+
+![](../../images/only_one_test.JPG)
+    
+### Ressources
+-   See the [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.
 -   [R Consortium Working Groups](https://www.r-consortium.org/all-projects/isc-working-groups)
 -   [ROpenSci](https://ropensci.org/)

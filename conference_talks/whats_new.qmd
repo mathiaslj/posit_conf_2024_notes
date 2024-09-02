@@ -2,12 +2,14 @@
 title: "What's new"
 ---
 
-## Quarto
+## Quarto {#sec:what_new-quarto}
 
 -   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML
+    -   See brief intro to typst components in [these notes for talk *Report Design in R: Small Tweaks that Make a Big Difference*](other_talks/quarto_custom.qmd#sec:typst_components)
+    -   [Appsilon](https://www.appsilon.com/) used typst for automatic report generation in their TARS tool, which was talked about in the talk [*Shiny in Action: Transforming Film Production with TARS*](other_talks/end_to_end_ds.qmd#sec:TARS)
 -   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content
 
-## AI tools {#whats_new-AI_tools}
+## AI tools {#sec:whats_new-AI_tools}
 
 -   [recraft.ai](https://www.recraft.ai/) to generate consistent vector graphics - great for package stickers
 -   [scribe](https://scribehow.com/) to easily create step-by-step tutorials
@@ -20,13 +22,15 @@ title: "What's new"
 -   Can debug C and C++ code
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
-    
-## Data access and user authentication
+
+## Corporate specific
+
+### Data access and user authentication
 
 -   Ability to sign into organisation's cloud data platform like [snowflake](https://www.snowflake.com/en/) or [databricks](https://www.databricks.com/) in Posit Workbench AND Posit Connect
     -   Users no longer have to think about managing access tokens to pass them to connections when working in workbench
     -   Authentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform    
 
-## R project
+### Quarto templates
 
--   See the [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.
+See notes from the talk [*Designing and Deploying Internal Quarto Templates*](other_talks/quarto_custom.qmd#sec:quarto_internal_templates)

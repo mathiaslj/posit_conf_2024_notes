@@ -1,0 +1,92 @@
+---
+title: "Pour Some Glitter On It: Custom Quarto Outputs"
+---
+
+[Link to video](https://reg.conf.posit.co/flow/posit/positconf24/publiccatalog/page/publiccatalog/session/1712004041983001s1h4)"
+
+## Report Design in R: Small Tweaks that Make a Big Difference
+
+-   [Link to slides](https://rfor.us/posit2024slides)
+-   [Link to GitHub repo](https://rfor.us/posit2024repo)
+-   [Link to report examples](https://rfor.us/consulting)
+
+### Session description
+
+*Improving the aesthetics of your Quarto-based reports can feel overwhelming, especially if you don't consider yourself a designer. David Keyes from R for the Rest of Us shares simple yet effective tweaks to enhance the visual quality of reports in R. This talk covers practical techniques for consistently applying brand fonts and colors in both text and plots, which, while individually small, collectively elevate the overall design of your reports. Attendees will leave with actionable tips that can significantly enhance the professionalism and clarity of their report presentations.*
+
+### Session notes
+
+-   Design matters! Be consistent, create nice layouts, use nice colors
+
+#### Typst components {#sec:typst_components}
+
+-   typst-show.typ (see simple example [here](https://github.com/rfortherestofus/report-design/blob/main/typst-show.typ))
+    -   Takes variables from a .qmd file (title, parameters, etc. defined in YAML at top of qmd document) and passes them into typst
+-   typst-template.typ (see simple example [here](https://github.com/rfortherestofus/report-design/blob/main/typst-template.typ))
+    -   Uses varaibles defined in typst-show.typ
+    -   Set properties of document, fx. `set text(font: "Open sans", size: 12pt)`, `set page(...)`, etc.
+    -   Add fx. background rectangle with `background: place(top, rec(...))` or header with `header: ...` (refer to fx. `title` variable defined in typst-show.typ to show in the header)
+
+#### Creating a layout - adding plots
+
+-   [update_geom_defaults](https://ggplot2.tidyverse.org/reference/update_defaults.html) function
+-   [Presentation on how to organise multiple plots for parametrised reporting](https://github.com/rfortherestofus/data-viz-parameterized-reporting)
+
+## Reproducible, Dynamic, and Elegant Books with Quarto
+
+[Link to slides](bit.ly/books-conf24)
+
+### Session description
+
+*Drawing on her extensive experience in authoring books with Quarto for different audiences and formats, Mine Cetinkaya-Rundel provides a comprehensive guide to creating reproducible, dynamic, and visually appealing books. The session covers best practices for Quarto book projects, including features from the latest Quarto release (1.4) such as flexible cross-references, embedding computations, and inline code in multiple languages. Mine also demonstrates how to enhance the interactivity of web-hosted books using tools like webR and shinylive, making them more engaging for readers.*
+
+### Session notes
+
+#### Good ressources of books to look at for structure (and content)
+
+-   [Introduction to modern statistics](https://github.com/OpenIntroStat/ims?tab=readme-ov-file)
+-   [R for data science](https://github.com/hadley/r4ds)
+-   [Quarto the definitive guide](https://github.com/mine-cetinkaya-rundel/quarto-tdg)
+
+::: {.callout-note}
+Note the above repos at time of writing this does not use typst but does customisation for HTML and PDF separately. Look into typst!
+:::
+
+#### Tips for using quarto
+
+-   Use of [callouts](https://quarto.org/docs/authoring/callouts.html)
+    -   Create custom classes by doing `::: {.new_class} ... :::` and defining the class in the `.scss` file like `.new_class { ... }`
+-   `_common.R` file in project that sets `options(...)`, `knitr::opts_chunk$set(...)`, [theme_set](https://ggplot2.tidyverse.org/reference/theme_get.html) and [update_geom_defaults](https://ggplot2.tidyverse.org/reference/update_defaults.html)
+-   Use existing GitHub actions
+    -   See fx. the [build_book.yaml](https://github.com/hadley/r4ds/blob/main/.github/workflows/build_book.yaml) action in R for data science.
+    -   See [general quarto actions by quarto_dev](https://github.com/quarto-dev/quarto-actions)
+
+## Designing and Deploying Internal Quarto Templates {#sec:quarto_internal_templates}
+
+### Session description
+
+*Meghan Hall explores the power of Quarto in creating reproducible, parameterized documents and how to harness this power through internal templates. The session addresses the challenges of managing numerous .qmd files and the inefficiencies of copy-pasting content across projects. Meghan shares tips for developing Quarto templates that standardize structure, style, and initial content, ensuring consistency with organizational branding. Additionally, she demonstrates how to deploy these templates efficiently within internal R packages, streamlining document creation and fostering consistency across projects.*
+
+### Session notes
+
+Firstly, [a link to a written blog post about this talk](https://meghan.rbind.io/blog/2024-08-14-quarto-templates/)
+
+**Essence of talk**: In the [quarto docs](https://quarto.org/docs/extensions/starter-templates.html) exists guides for creating **public** templates. This talk focuses on how to create internal templates for use in corporations.
+
+-   Use [DevTools](https://developer.chrome.com/docs/devtools) via right-click -> inspect to look at the HTML
+    -   Make changes to see how it affects the website
+    -   Can be used on resulting HTMLs from rendering of quarto to help see structure and aid in writing of CSS to style
+    -   See how other people's websites are structured
+-   [Mozilla web docs for help with fx. CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+-   Use of internal packages to streamline process of creating and using templates
+    -   Fx. function `create_zelus_html` to create project with files needed for template
+
+## Closeread: Bringing Scrollytelling to Quarto
+
+### Session description
+
+*Andrew Bray introduces "Closeread," a Quarto extension designed to bring the powerful web design technique of scrollytelling to a broader audience of data scientists. Scrollytelling allows for a seamless narrative flow as graphics and text transition while a user scrolls. Closeread makes it easier to implement this technique without needing extensive web development skills, supporting cross-fading plots, graphics, and narrative content. The session also covers how users can zoom in on specific content and highlights the ability for advanced users to incorporate custom animations using Observable JS, enriching the storytelling experience.*
+
+### Session notes
+
+Did not watch this session.

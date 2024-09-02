@@ -16,6 +16,12 @@ Speaker: Allen Downey
 
 If you encounter questions that is not answered, look into ressources/surveys with data that can answer the question.
 
+### Periods in data science "enthusiasm"
+
+This talks in its whole revolves around when and why the events on the below image happens:
+
+![](../../images/data_science_journey)
+
 ### Theoretical vs. Computational Statistics
 
 **Theoretical Statistics:**
