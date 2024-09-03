@@ -91,11 +91,25 @@ Use templates!
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
     
+## GitHub actions
+
+-   **Scheduled running**: Use [crontab.guru](https://crontab.guru/) for cron syntax (see examples of usage in [workshop notes](../workshop.qmd#sec:cron))
+-   [r-lib/actions examples](https://github.com/r-lib/actions/tree/v2-branch/examples)
+-   Use environment variables in the GitHub action to pass personal access tokens (PATs) to authorise publishing, API keys, etc.
+    -   See [Using environmental variables with GitHub actions and Posit cloud connect](../workshop.qmd#sec:envvar_ci) for more details
+
 ## General package development
 
+::: {.callout-tip}
+See workshop notes [Practical tips for working on production projects](../workshop.qmd#sec:workshop_practical-tips) for nice practical tips on how to manage time, collaborate, tips on ensuring consistent high quality code as well as tips for package development in production
+:::
+
+-   Input/data validation:
+    -   See [checkmate](https://mllg.github.io/checkmate/) for input validation
+    -   See [pointblank](https://github.com/rstudio/pointblank) for data validation
 -   Use [`dev_sitrep`](https://devtools.r-lib.org/reference/dev_sitrep.html)
 -   Ressources:
-    -   https://r-pkgs.org/
+    -   [R packages](https://r-pkgs.org/)
     -   [Writing R extensions](https://rstudio.github.io/r-manuals/r-exts/)
     -   [Tidyverse style guide](https://style.tidyverse.org/)
     

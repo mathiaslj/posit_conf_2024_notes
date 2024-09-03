@@ -14,6 +14,68 @@ This document is a summarised takeaway from the [R in production workshop](https
 There were other very interesting souding workshops at the same time. Fx. slides from Jenny Bryan's package development workshop can be found [here](https://github.com/posit-conf-2024/pkg-dev).
 :::
 
+## Practical tips for working on production projects {#sec:workshop_practical-tips}
+
+### Time
+
+Proposed **batching** and **time boxing**. Meaning gather issues for a project, and then work intensely with that for a certain amount of time (*do not plan what needs to be done, but how long you have to work on that project*). This ensures not having to context switch between projects, and having to prioritise the most important parts.
+
+### Sharing code
+
+-   Find code: Absolute best approach is git repos with metadata. Metadata in form of fx. tags
+-   Run code: manifest/renv
+-   Understand code: 
+    -   Build shared conventions
+    -   Review each other's code
+    -   Build team packages
+    -   **Create a team style guide (quarto book)**
+        -   Fx. https://github.com/jtleek/rpackages (see slide 23)
+    -   Create PRs for your own packages.
+    -   Tidyverse guides:
+        -   https://style.tidyverse.org/
+        -   https://design.tidyverse.org/
+        -   https://code-review.tidyverse.org/
+        
+### Package development in production
+
+#### Package dependencies
+
+-   Fine to not think about dependencies during prototyping, but when creating code for production, see if some dependencies can be left out, to make code less vulnerable.
+    -   Use [this code snippet](https://github.com/posit-conf-2024/r-in-production/blob/main/3-dep-savings.R) (requires development version of `pak` as of 12-08-2024) to see what interdependencies the removal of a package will provide.
+-   Having package `conflicted` loaded means you get an error when trying to use a function that is available in several packages.
+-   Function `renv::renv_lockfile_from_manifest("manifest.json", "renv.lockfile")` let's you create a lock file from a manifest file, which can be useful fx. if you can no longer run the code in a repo from an app that was deployed a year ago.
+    -   Hadley's recommendation is to not use renv unless absolutely necessary. Using manifest file gives control in deployment but not in development - nice middle ground.
+
+#### Input/data validation
+
+-   See [checkmate](https://mllg.github.io/checkmate/) for input validation
+-   See [pointblank](https://github.com/rstudio/pointblank) for data validation
+    -   `col_is_x` and `col_vals_x` functions useful
+    
+#### Set up `usethis`
+
+- Use `usethis::use_usethis()` for consistent setup across sessions.
+- Disable session saving/reloading with `usethis::use_blank_slate()`.
+    
+#### Setting up a repository with GitHub pages using `usethis`
+
+1. `use_git()`
+1. `use_github()`
+1. `use_description()`
+1. `use_github_action(...)`
+1. `use_github_pages()`
+
+### Debugging and logging
+
+-   Look into using `logger` package. Has fx. `log_info` and `log_warn`.
+-   [Example](https://github.com/hadley/houston-pollen/actions/runs/10101725281/job/27935890005) shows that logging fx. "trying..." and writing different URLs can be helpful.
+-   Use emojis since they catch your eye.
+-   Add `options(rlang_backtrace_on_error = "full")` to your Rmd/qmd documents, so error messages are displayed with `rlang` when deployed.
+-   Useful to use `print(rlang::back_trace())` sometimes.
+-   Add `cat("Message", file = stderr())`. The `file` specification makes sure that quarto(/rmarkdown) does not write it in the rendered document
+    -   Will appear in the log on the deployed app.
+-   Name chunks in rmd/qmd to help with debugging (instead of it saying there is an error in unnamed chunk x, you get a name of the chunk)
+
 ## What is "in production"?
 
 - Code is run on another machine
@@ -35,11 +97,6 @@ Interactive jobs:
 - Fx. a shiny app or plumber API that helps
   - explore data, score model, etc.
   - run on demand
-
-## General Workflow
-
-- Use `usethis::use_usethis()` for consistent setup across sessions.
-- Disable session saving/reloading with `usethis::use_blank_slate()`.
 
 ## GitHub Actions
 
@@ -64,139 +121,180 @@ Structure in steps:
   - Fx. using [push](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore),
   [pull_request](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore), [workflow_dispatch](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch), etc.
   
-#### Scheduled running with cron jobs
+#### Scheduled running with cron jobs {#sec:cron}
 
 ::: {.callout-tip}
-Use https://crontab.guru/ for cron syntax.
+Use [crontab.guru](https://crontab.guru/) for cron syntax.
 :::
 
 - Run at 9 AM every Friday:
-    ```r
-    on:
-      schedule:
-      - cron: '0 9 * * 5'
-    ```
+
+```r
+on:
+  schedule:
+  - cron: '0 9 * * 5'
+```
+
 - Run hourly on weekdays:
-    ```r
-    on:
-      schedule:
-      - cron: '0 9-17 * * 1-5'
-    ```
+
+```r
+on:
+  schedule:
+  - cron: '0 9-17 * * 1-5'
+```
 
 ### Setup
 
 - Use `rig` for R setup and `pak` for dependencies:
-    ```r
-    - uses: actions/checkout@v4
-    - uses: r-lib/actions/setup-r@v2
-      with:
-        use-public-rspm: true
-    - uses: r-lib/actions/setup-r-dependencies@v2
-    ```
+
+```r
+- uses: actions/checkout@v4
+- uses: r-lib/actions/setup-r@v2
+  with:
+    use-public-rspm: true
+- uses: r-lib/actions/setup-r-dependencies@v2
+```
+
 - Optionally, use `renv`:
-    ```r
-    - uses: r-lib/actions/setup-renv@v2
-    ```
+
+```r
+- uses: r-lib/actions/setup-renv@v2
+```
 
 ### Execution
 
 - Example steps:
-    ```r
-    - name: Fetch latest data
-      run: Rscript scrape.R
 
-    - name: Collapse into yearly parquet files
-      run: Rscript collapse.R
-    ```
+```r
+- name: Fetch latest data
+  run: Rscript scrape.R
+```
+
+```r
+- name: Render Quarto directory
+  run: quarto render
+```
 
 ### Publishing
 
 - Auto-commit changes:
-    ```r
-    - uses: stefanzweifel/git-auto-commit-action@v5
-    ```
 
-### Example Repositories
+```r
+- uses: stefanzweifel/git-auto-commit-action@v5
+```
+
+-   Publish quarto website
+
+```r
+- name: Render and Publish
+  uses: quarto-dev/quarto-actions/publish@v2
+  with:
+    target: gh-pages
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+### Example repositories and actions
+
+Repositories:
 
 - [Available Work](https://github.com/hadley/available-work): Uses cron, personal access tokens, and pak for setup.
-- [Houston Pollen](https://github.com/hadley/houston-pollen): Includes parquet file management.
+- [Houston Pollen](https://github.com/hadley/houston-pollen): Same as above but includes parquet file management.
 - [CRAN Deadlines](https://github.com/hadley/cran-deadlines): Renders Quarto documents and publishes to GitHub Pages.
+
+Actions:
+
+[r-lib/actions examples](https://github.com/r-lib/actions/tree/v2-branch/examples)
 
 ## Posit Connect Cloud
 
-- Example: [eggnogr](https://github.com/hadley/eggnogr)
+- Example of deployed app: [eggnogr](https://github.com/hadley/eggnogr)
 - Requires `manifest.json` file via `rsconnect::writeManifest()`.
 - Simplifies Docker image selection compared to GitHub Actions.
 
-## Server Environment Considerations
+## General considerations regarding [CI/CD](https://www.redhat.com/en/topics/devops/what-is-ci-cd)
 
-### Frustrations
+### Package installation and dependency setup
 
-- **OS Differences**: Minor discrepancies between Windows/Linux.
-- **Timezone/Locale**: Potential issues with `lubridate` and `readr` depending on the environment.
+#### Approaches to snapshotting to make sure you have same package on laptop and server
 
-## Package Management
+-   DESCRIPTION + `pak::pak(".")` - live life on the edge
+-   `rsconnect::writeManifest()` - capture dependencies when you deploy (only affects the server at deployment)
+-   `renv::snapshot()` - lock dependencies for eternity (also on the laptop)
 
-### Desktop vs. Server
+##### Information in manifest.json file
 
-- **Source vs. Binary**: Linux packages often need to be compiled from source.
-- **System Dependencies**: Linux requires external dependencies; use [Posit Package Manager](https://packagemanager.posit.co) for binaries.
+What is the non-package information?
 
-### Dependency Snapshotting
+-   version (of the manifest spec)
+-   locale (language)
+-   platform (R version)
+-   metadata
+    -   appmode (fx. shiny, rmd-static, etc.)
+    -   etc.
+-   files
 
-- Use `DESCRIPTION + pak::pak(".")` for latest dependencies.
-- Use `rsconnect::writeManifest()` for server deployments.
-- Use `renv::snapshot()` for fixed dependencies.
+What is the package information?
 
-### `manifest.json` Information
+-   Source: Fx. CRAN
+-   Repository
+-   description (metadata about lots of things)
 
-- **Non-Package**: Includes R version, locale, and platform data.
-- **Package**: Lists sources, repositories, and descriptions.
+#### Difference between desktop and server package installs
 
-## Debugging and Logging
+-   Source package: Source code that needs to be built (in steps to bundled and then binary)
+-   Binary package: Ready to download, but computer specific. Is created from a source package. *Not available for Linux on CRAN*.
 
-### Tips
+**System dependencies**: 
 
-- Use `options(rlang_backtrace_on_error = "full")` for detailed error messages.
-- Add `cat("Message", file = stderr())` to log errors without affecting the rendered document.
-- Name chunks in Rmd/Qmd for easier debugging.
-- Consider using the `logger` package.
+-   For Mac and Windows, packages are self-contained, meaning that system dependencies are within the package.
+-   For Linux, it uses C, etc. installed somewhere else on the computer.
+    -   Use the [Posit package manager](https://packagemanager.posit.co) to get binaries also for Linux.
+        -   So do not need to compile from source each time. In containers, we install package, run some code and throw it away. So compiling source package (which might take a long time) needs to be done again and again.
 
-## Authentication
+### Authentication
 
-- **Environment Variables**: Avoid using `Sys.setenv()` directly. Instead, use `.Renviron` for local settings.
-- **Secrets in CI/CD**: Store sensitive data as secret variables in GitHub or Posit Connect.
+#### (Encrypted) Environment variables
 
-## Reproducibility Across Runs
+![How to set an environment variable](images/workshop_envvars.JPG)
 
-### Platform
+Don't use `Sys.setenv()` - this will be saved in the .Rhistory file, which is easy to accidentally share. Add to your `.Renviron` file as shown in above picture
 
-- Containers ensure consistent environments.
+##### Using environmental variables with GitHub actions and Posit cloud connect {#sec:envvar_ci}
 
-### Packages
+In code, fx. use 
 
-- **Minimizing Dependencies**: Use the `pak` ecosystem to reduce unnecessary package dependencies.
-- **Lockfiles**: Convert `manifest.json` to `renv.lockfile` using `renv::renv_lockfile_from_manifest()`.
+```{r, eval = FALSE}
+req_url_query(
+    ...,
+    apiKey = Sys.getenv("NEWS_API_KEY")
+  )
+```
 
-### Data Validation
+-   On laptop: Set fx. `NEWS_API_KEY` with value in .Renviron
+-   Make secret variable in GitHub or posit cloud connect with name `NEWS_API_KEY` with value equal to the key (which is also set in .Renviron)
+    -   Make sure to include it in the environment of the docker container running the GitHub action by typing
 
-- Use `pointblank` for ensuring data integrity:
-    ```r
-    pointblank::export_report()
-    ```
-- Functions like `col_is_x` and `col_vals_x` are useful for specific validations.
+```r
+env:
+  NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+```
 
-### Time Management
+-   The above point is often also used to prove a GitHub PAT to authorise a deployment fx.
 
-- **Batching & Time Boxing**: Work in focused bursts on specific projects to minimize context switching.
+##### Federated authentication
 
-### Data Formats
+Can be used in Posit Connect administered by IT department in company.
 
-- Explore `nanoparquet`, `arrow`, and `duckdb` for efficient data handling.
+## Containers
 
-## Code Sharing
-
-- **Find**: Use git repos with metadata like tags.
-- **Run**: Rely on `manifest` or `renv`.
-- **Understand**: Create shared conventions, team packages, and style guides.
-- **Tidyverse Guides**: Use resources like [style](https://style.tidyverse.org/), [design](https://design.tidyverse.org/), and [code review](https://code-review.tidyverse.org/).
+-   Use of containers makes sure platform does not change
+-   Useful containers to know:
+    -   [GitHub action containers - Choosing the runner for a job](https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job)
+        -   `ubuntu-latest`
+    -   [rocker](https://github.com/rocker-org/rocker/wiki)
+        -   Run R with docker containers
+    -   [rhub](https://github.com/r-hub/rhub)
+        -   Use to create GitHub action for checking your package
+    -   [evercran](https://github.com/r-hub/evercran)
+        -   Run historical R versions on today’s computers
