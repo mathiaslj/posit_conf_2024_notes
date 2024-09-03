@@ -22,10 +22,6 @@ title: "What's new"
 
 ## Corporate specific
 
-### Single node DuckDB
-
-Read notes on [Save costs without compromising on speed with single node(/machine) using DuckDB](keynotes/04duckdb.qmd#sec:save_single_node).
-
 ### Databricks
 
 -   See notes for talk *Elevating Enterprise Data Through Open Source LLMs* at [AI chat-bot solution combining Databricks, Posit connect and Shiny conforming with legal and security requirements](other_talks/ai_not_generated.qmd#sec:databricks_ai_solution)
@@ -36,6 +32,14 @@ Read notes on [Save costs without compromising on speed with single node(/machin
 -   Ability to sign into organisation's cloud data platform like [snowflake](https://www.snowflake.com/en/) or [databricks](https://www.databricks.com/) in Posit Workbench AND Posit Connect
     -   Users no longer have to think about managing access tokens to pass them to connections when working in workbench
     -   Authentication for data access in deployed Shiny apps in Posit Connect is automatic with a simple login to the cloud data platform
+    
+### Single node DuckDB
+
+Read notes on [Save costs without compromising on speed with single node(/machine) using DuckDB](keynotes/04duckdb.qmd#sec:save_single_node).
+
+### Pharma GxP packages
+
+The [R validation Hub](https://www.pharmar.org/) is putting a lot of work into [riskassessment](https://www.pharmar.org/posts/news/updates-aug-2024/) R package - give users interface through shiny app that automatically runs riskassessment on packages they want to add to the GxP list.
 
 ### Quarto templates
 

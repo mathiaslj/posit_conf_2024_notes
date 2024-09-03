@@ -125,8 +125,10 @@ See workshop notes [Practical tips for working on production projects](../worksh
 Think of computational statistics as way of having *only one test* contrary to theoretical statistic, where need to think about what is the "right" distribution or test
 
 ![](../../images/only_one_test.JPG)
-    
-### Ressources
--   See the [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.
+
+### Misc ressources
+
+-   [R contributor site](https://contributor.r-project.org/) to get information on how to contribute to the R project.
 -   [R Consortium Working Groups](https://www.r-consortium.org/all-projects/isc-working-groups)
+    -   [R validation Hub](https://www.pharmar.org/)
 -   [ROpenSci](https://ropensci.org/)
