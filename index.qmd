@@ -2,8 +2,6 @@
 title: "posit::conf(2024) conference notes"
 ---
 
-This Quarto website is home to private notes from workshop and attended conference talks.
+This Quarto website is home to private notes from workshop and attended conference talks. The [Takeaways](conference_talks/whats_new.qmd) tab tries to condense the most relevant information into points to more easily gain an overview of what I learnt from the entire conference experience.
 
-Links:
-
--   [Conference portal](https://reg.conf.posit.co/flow/posit/positconf24/reg/login)
+[Link to conference portal](https://reg.conf.posit.co/flow/posit/positconf24/reg/login) with session information and videos (only accessible with a valid login)
