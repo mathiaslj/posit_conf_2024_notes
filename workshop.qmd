@@ -1,0 +1,202 @@
+---
+title: "R in Production Workshop Summary"
+toc: true
+toc-location: left
+toc-title: "Table of Contents"
+toc-expand: 1
+---
+
+::: {.callout-important}
+This document is a summarised takeaway from the [R in production workshop](https://github.com/posit-conf-2024/r-in-production) focused on providing itemises with useful tools and tips that can be referenced and won't be providing much context.
+:::
+
+::: {.callout-note}
+There were other very interesting souding workshops at the same time. Fx. slides from Jenny Bryan's package development workshop can be found [here](https://github.com/posit-conf-2024/pkg-dev).
+:::
+
+## What is "in production"?
+
+- Code is run on another machine
+  - Suggest using `runs-on: ubuntu-latest` linux based server
+- Code is run repeatedly
+  - Scheduled, after another job, or on demand
+- Code (and data) is a shared responsibility
+
+### Two types of production jobs
+
+Batch jobs:
+
+- Usually an .R, .Rmd, .qmd file to
+  - generate report, prep data, fit model, etc.
+  - run on a schedule or succeeding another job
+
+Interactive jobs:
+
+- Fx. a shiny app or plumber API that helps
+  - explore data, score model, etc.
+  - run on demand
+
+## General Workflow
+
+- Use `usethis::use_usethis()` for consistent setup across sessions.
+- Disable session saving/reloading with `usethis::use_blank_slate()`.
+
+## GitHub Actions
+
+- **YAML Structure**: Place YAML files with GitHub actions in ".github/workflows".
+- **GitHub actions run in container**
+  - Use `git-auto-commit`, publish a site or another action to "retrive" the actions performed by the action
+  - Need to tell it to install R, install dependencies, etc.
+    - In contrast to **Posit Connect Cloud**, which automatically detects R version and dependencies
+
+Structure in steps:
+
+- Configuration of GitHub action
+- Setup of environment
+- Execution
+- Publishing/deployment
+
+### Configuration of GitHub action
+
+- **Name**: Name of the action showing in *Actions* pane inside repository
+  - Tip: Align with the filename
+- **On**: Specify when to run
+  - Fx. using [push](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore),
+  [pull_request](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore), [workflow_dispatch](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch), etc.
+  
+#### Scheduled running with cron jobs
+
+::: {.callout-tip}
+Use https://crontab.guru/ for cron syntax.
+:::
+
+- Run at 9 AM every Friday:
+    ```r
+    on:
+      schedule:
+      - cron: '0 9 * * 5'
+    ```
+- Run hourly on weekdays:
+    ```r
+    on:
+      schedule:
+      - cron: '0 9-17 * * 1-5'
+    ```
+
+### Setup
+
+- Use `rig` for R setup and `pak` for dependencies:
+    ```r
+    - uses: actions/checkout@v4
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        use-public-rspm: true
+    - uses: r-lib/actions/setup-r-dependencies@v2
+    ```
+- Optionally, use `renv`:
+    ```r
+    - uses: r-lib/actions/setup-renv@v2
+    ```
+
+### Execution
+
+- Example steps:
+    ```r
+    - name: Fetch latest data
+      run: Rscript scrape.R
+
+    - name: Collapse into yearly parquet files
+      run: Rscript collapse.R
+    ```
+
+### Publishing
+
+- Auto-commit changes:
+    ```r
+    - uses: stefanzweifel/git-auto-commit-action@v5
+    ```
+
+### Example Repositories
+
+- [Available Work](https://github.com/hadley/available-work): Uses cron, personal access tokens, and pak for setup.
+- [Houston Pollen](https://github.com/hadley/houston-pollen): Includes parquet file management.
+- [CRAN Deadlines](https://github.com/hadley/cran-deadlines): Renders Quarto documents and publishes to GitHub Pages.
+
+## Posit Connect Cloud
+
+- Example: [eggnogr](https://github.com/hadley/eggnogr)
+- Requires `manifest.json` file via `rsconnect::writeManifest()`.
+- Simplifies Docker image selection compared to GitHub Actions.
+
+## Server Environment Considerations
+
+### Frustrations
+
+- **OS Differences**: Minor discrepancies between Windows/Linux.
+- **Timezone/Locale**: Potential issues with `lubridate` and `readr` depending on the environment.
+
+## Package Management
+
+### Desktop vs. Server
+
+- **Source vs. Binary**: Linux packages often need to be compiled from source.
+- **System Dependencies**: Linux requires external dependencies; use [Posit Package Manager](https://packagemanager.posit.co) for binaries.
+
+### Dependency Snapshotting
+
+- Use `DESCRIPTION + pak::pak(".")` for latest dependencies.
+- Use `rsconnect::writeManifest()` for server deployments.
+- Use `renv::snapshot()` for fixed dependencies.
+
+### `manifest.json` Information
+
+- **Non-Package**: Includes R version, locale, and platform data.
+- **Package**: Lists sources, repositories, and descriptions.
+
+## Debugging and Logging
+
+### Tips
+
+- Use `options(rlang_backtrace_on_error = "full")` for detailed error messages.
+- Add `cat("Message", file = stderr())` to log errors without affecting the rendered document.
+- Name chunks in Rmd/Qmd for easier debugging.
+- Consider using the `logger` package.
+
+## Authentication
+
+- **Environment Variables**: Avoid using `Sys.setenv()` directly. Instead, use `.Renviron` for local settings.
+- **Secrets in CI/CD**: Store sensitive data as secret variables in GitHub or Posit Connect.
+
+## Reproducibility Across Runs
+
+### Platform
+
+- Containers ensure consistent environments.
+
+### Packages
+
+- **Minimizing Dependencies**: Use the `pak` ecosystem to reduce unnecessary package dependencies.
+- **Lockfiles**: Convert `manifest.json` to `renv.lockfile` using `renv::renv_lockfile_from_manifest()`.
+
+### Data Validation
+
+- Use `pointblank` for ensuring data integrity:
+    ```r
+    pointblank::export_report()
+    ```
+- Functions like `col_is_x` and `col_vals_x` are useful for specific validations.
+
+### Time Management
+
+- **Batching & Time Boxing**: Work in focused bursts on specific projects to minimize context switching.
+
+### Data Formats
+
+- Explore `nanoparquet`, `arrow`, and `duckdb` for efficient data handling.
+
+## Code Sharing
+
+- **Find**: Use git repos with metadata like tags.
+- **Run**: Rely on `manifest` or `renv`.
+- **Understand**: Create shared conventions, team packages, and style guides.
+- **Tidyverse Guides**: Use resources like [style](https://style.tidyverse.org/), [design](https://design.tidyverse.org/), and [code review](https://code-review.tidyverse.org/).

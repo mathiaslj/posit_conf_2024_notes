@@ -16,6 +16,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: workshop.qmd
+        text: Workshop
       - sidebar:conference_talks
   sidebar: 
     - id: conference_talks
