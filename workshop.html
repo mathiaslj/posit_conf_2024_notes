@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R in Production Workshop Summary – posit::conf(2024)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">posit::conf(2024)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./workshop.html" aria-current="page"> 
+<span class="menu-text">Workshop</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conference-talks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conference talks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conference-talks">    
+        <li class="dropdown-header">Keynotes</li>
+        <li>
+    <a class="dropdown-item" href="./conference_talks/keynotes/01posit_update.html">
+ <span class="dropdown-text">Updates from Posit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/keynotes/02AI.html">
+ <span class="dropdown-text">Practical Tips for using Generative AI in Data Science Workflows</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/keynotes/03data_science_journey.html">
+ <span class="dropdown-text">A future of data science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/keynotes/04duckdb.html">
+ <span class="dropdown-text">Data Wrangling [for Python or R] Like a Boss With DuckDB</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Other talks</li>
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/ai_not_generated.html">
+ <span class="dropdown-text">This Session Was Not Generated By AI</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/end_to_end_ds.html">
+ <span class="dropdown-text">End-To-End Data Science With Real-World Impact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/introducing_positron.html">
+ <span class="dropdown-text">Introducing Positron</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/quarto_automated.html">
+ <span class="dropdown-text">Automated Reporting With Quarto: Beyond Copy And Paste</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/quarto_custom.html">
+ <span class="dropdown-text">Pour Some Glitter On It: Custom Quarto Outputs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/quarto_knowledge_manage.html">
+ <span class="dropdown-text">Quarto for Knowledge Management</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/other_talks/strenghtening_r_ecosystem.html">
+ <span class="dropdown-text">Strengthening the R ecosystem</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-takeaways" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Takeaways</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-takeaways">    
+        <li class="dropdown-header">Takeaways</li>
+        <li>
+    <a class="dropdown-item" href="./conference_talks/whats_new.html">
+ <span class="dropdown-text">What’s new</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./conference_talks/tipsandtricks.html">
+ <span class="dropdown-text">Miscellaneous tips and tricks learnt from conference</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mathiaslj/posit_conf_2024_notes"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#sec:workshop_practical-tips" id="toc-sec:workshop_practical-tips" class="nav-link active" data-scroll-target="#sec\:workshop_practical-tips">Practical tips for working on production projects</a>
+  <ul class="collapse">
+  <li><a href="#time" id="toc-time" class="nav-link" data-scroll-target="#time">Time</a></li>
+  <li><a href="#sharing-code" id="toc-sharing-code" class="nav-link" data-scroll-target="#sharing-code">Sharing code</a></li>
+  <li><a href="#package-development-in-production" id="toc-package-development-in-production" class="nav-link" data-scroll-target="#package-development-in-production">Package development in production</a></li>
+  <li><a href="#debugging-and-logging" id="toc-debugging-and-logging" class="nav-link" data-scroll-target="#debugging-and-logging">Debugging and logging</a></li>
+  </ul></li>
+  <li><a href="#what-is-in-production" id="toc-what-is-in-production" class="nav-link" data-scroll-target="#what-is-in-production">What is “in production”?</a>
+  <ul class="collapse">
+  <li><a href="#two-types-of-production-jobs" id="toc-two-types-of-production-jobs" class="nav-link" data-scroll-target="#two-types-of-production-jobs">Two types of production jobs</a></li>
+  </ul></li>
+  <li><a href="#sec:workshop_github-actions" id="toc-sec:workshop_github-actions" class="nav-link" data-scroll-target="#sec\:workshop_github-actions">GitHub Actions</a>
+  <ul class="collapse">
+  <li><a href="#configuration-of-github-action" id="toc-configuration-of-github-action" class="nav-link" data-scroll-target="#configuration-of-github-action">Configuration of GitHub action</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#execution" id="toc-execution" class="nav-link" data-scroll-target="#execution">Execution</a></li>
+  <li><a href="#publishing" id="toc-publishing" class="nav-link" data-scroll-target="#publishing">Publishing</a></li>
+  <li><a href="#example-repositories-and-actions" id="toc-example-repositories-and-actions" class="nav-link" data-scroll-target="#example-repositories-and-actions">Example repositories and actions</a></li>
+  </ul></li>
+  <li><a href="#posit-connect-cloud" id="toc-posit-connect-cloud" class="nav-link" data-scroll-target="#posit-connect-cloud">Posit Connect Cloud</a></li>
+  <li><a href="#general-considerations-regarding-cicd" id="toc-general-considerations-regarding-cicd" class="nav-link" data-scroll-target="#general-considerations-regarding-cicd">General considerations regarding CI/CD</a>
+  <ul class="collapse">
+  <li><a href="#package-installation-and-dependency-setup" id="toc-package-installation-and-dependency-setup" class="nav-link" data-scroll-target="#package-installation-and-dependency-setup">Package installation and dependency setup</a></li>
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  </ul></li>
+  <li><a href="#containers" id="toc-containers" class="nav-link" data-scroll-target="#containers">Containers</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mathiaslj/posit_conf_2024_notes/blob/main/workshop.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R in Production Workshop Summary</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This document is a summarised takeaway from the <a href="https://github.com/posit-conf-2024/r-in-production">R in production workshop</a> focused on providing itemises with useful tools and tips that can be referenced and won’t be providing much context.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There were other very interesting souding workshops at the same time. Fx. slides from Jenny Bryan’s package development workshop can be found <a href="https://github.com/posit-conf-2024/pkg-dev">here</a>.</p>
+</div>
+</div>
+<section id="sec:workshop_practical-tips" class="level2">
+<h2 class="anchored" data-anchor-id="sec:workshop_practical-tips">Practical tips for working on production projects</h2>
+<section id="time" class="level3">
+<h3 class="anchored" data-anchor-id="time">Time</h3>
+<p>Proposed <strong>batching</strong> and <strong>time boxing</strong>. Meaning gather issues for a project, and then work intensely with that for a certain amount of time (<em>do not plan what needs to be done, but how long you have to work on that project</em>). This ensures not having to context switch between projects, and having to prioritise the most important parts.</p>
+</section>
+<section id="sharing-code" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-code">Sharing code</h3>
+<ul>
+<li>Find code: Absolute best approach is git repos with metadata. Metadata in form of fx. tags</li>
+<li>Run code: manifest/renv</li>
+<li>Understand code:
+<ul>
+<li>Build shared conventions</li>
+<li>Review each other’s code</li>
+<li>Build team packages</li>
+<li><strong>Create a team style guide (quarto book)</strong>
+<ul>
+<li>Fx. https://github.com/jtleek/rpackages (see slide 23)</li>
+</ul></li>
+<li>Create PRs for your own packages.</li>
+<li>Tidyverse guides:
+<ul>
+<li>https://style.tidyverse.org/</li>
+<li>https://design.tidyverse.org/</li>
+<li>https://code-review.tidyverse.org/</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="package-development-in-production" class="level3">
+<h3 class="anchored" data-anchor-id="package-development-in-production">Package development in production</h3>
+<section id="package-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="package-dependencies">Package dependencies</h4>
+<ul>
+<li>Fine to not think about dependencies during prototyping, but when creating code for production, see if some dependencies can be left out, to make code less vulnerable.
+<ul>
+<li>Use <a href="https://github.com/posit-conf-2024/r-in-production/blob/main/3-dep-savings.R">this code snippet</a> (requires development version of <code>pak</code> as of 12-08-2024) to see what interdependencies the removal of a package will provide.</li>
+</ul></li>
+<li>Having package <code>conflicted</code> loaded means you get an error when trying to use a function that is available in several packages.</li>
+<li>Function <code>renv::renv_lockfile_from_manifest("manifest.json", "renv.lockfile")</code> let’s you create a lock file from a manifest file, which can be useful fx. if you can no longer run the code in a repo from an app that was deployed a year ago.
+<ul>
+<li>Hadley’s recommendation is to not use renv unless absolutely necessary. Using manifest file gives control in deployment but not in development - nice middle ground.</li>
+</ul></li>
+</ul>
+</section>
+<section id="inputdata-validation" class="level4">
+<h4 class="anchored" data-anchor-id="inputdata-validation">Input/data validation</h4>
+<ul>
+<li>See <a href="https://mllg.github.io/checkmate/">checkmate</a> for input validation</li>
+<li>See <a href="https://github.com/rstudio/pointblank">pointblank</a> for data validation
+<ul>
+<li><code>col_is_x</code> and <code>col_vals_x</code> functions useful</li>
+</ul></li>
+</ul>
+</section>
+<section id="set-up-usethis" class="level4">
+<h4 class="anchored" data-anchor-id="set-up-usethis">Set up <code>usethis</code></h4>
+<ul>
+<li>Use <code>usethis::use_usethis()</code> for consistent setup across sessions.</li>
+<li>Disable session saving/reloading with <code>usethis::use_blank_slate()</code>.</li>
+</ul>
+</section>
+<section id="setting-up-a-repository-with-github-pages-using-usethis" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-a-repository-with-github-pages-using-usethis">Setting up a repository with GitHub pages using <code>usethis</code></h4>
+<ol type="1">
+<li><code>use_git()</code></li>
+<li><code>use_github()</code></li>
+<li><code>use_description()</code></li>
+<li><code>use_github_action(...)</code></li>
+<li><code>use_github_pages()</code></li>
+</ol>
+</section>
+</section>
+<section id="debugging-and-logging" class="level3">
+<h3 class="anchored" data-anchor-id="debugging-and-logging">Debugging and logging</h3>
+<ul>
+<li>Look into using <code>logger</code> package. Has fx. <code>log_info</code> and <code>log_warn</code>.</li>
+<li><a href="https://github.com/hadley/houston-pollen/actions/runs/10101725281/job/27935890005">Example</a> shows that logging fx. “trying…” and writing different URLs can be helpful.</li>
+<li>Use emojis since they catch your eye.</li>
+<li>Add <code>options(rlang_backtrace_on_error = "full")</code> to your Rmd/qmd documents, so error messages are displayed with <code>rlang</code> when deployed.</li>
+<li>Useful to use <code>print(rlang::back_trace())</code> sometimes.</li>
+<li>Add <code>cat("Message", file = stderr())</code>. The <code>file</code> specification makes sure that quarto(/rmarkdown) does not write it in the rendered document
+<ul>
+<li>Will appear in the log on the deployed app.</li>
+</ul></li>
+<li>Name chunks in rmd/qmd to help with debugging (instead of it saying there is an error in unnamed chunk x, you get a name of the chunk)</li>
+</ul>
+</section>
+</section>
+<section id="what-is-in-production" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-in-production">What is “in production”?</h2>
+<ul>
+<li>Code is run on another machine
+<ul>
+<li>Suggest using <code>runs-on: ubuntu-latest</code> linux based server</li>
+</ul></li>
+<li>Code is run repeatedly
+<ul>
+<li>Scheduled, after another job, or on demand</li>
+</ul></li>
+<li>Code (and data) is a shared responsibility</li>
+</ul>
+<section id="two-types-of-production-jobs" class="level3">
+<h3 class="anchored" data-anchor-id="two-types-of-production-jobs">Two types of production jobs</h3>
+<p>Batch jobs:</p>
+<ul>
+<li>Usually an .R, .Rmd, .qmd file to
+<ul>
+<li>generate report, prep data, fit model, etc.</li>
+<li>run on a schedule or succeeding another job</li>
+</ul></li>
+</ul>
+<p>Interactive jobs:</p>
+<ul>
+<li>Fx. a shiny app or plumber API that helps
+<ul>
+<li>explore data, score model, etc.</li>
+<li>run on demand</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="sec:workshop_github-actions" class="level2">
+<h2 class="anchored" data-anchor-id="sec:workshop_github-actions">GitHub Actions</h2>
+<ul>
+<li><strong>YAML Structure</strong>: Place YAML files with GitHub actions in “.github/workflows”.</li>
+<li><strong>GitHub actions run in container</strong>
+<ul>
+<li>Use <code>git-auto-commit</code>, publish a site or another action to “retrive” the actions performed by the action</li>
+<li>Need to tell it to install R, install dependencies, etc.
+<ul>
+<li>In contrast to <strong>Posit Connect Cloud</strong>, which automatically detects R version and dependencies</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Structure in steps:</p>
+<ul>
+<li>Configuration of GitHub action</li>
+<li>Setup of environment</li>
+<li>Execution</li>
+<li>Publishing/deployment</li>
+</ul>
+<section id="configuration-of-github-action" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-of-github-action">Configuration of GitHub action</h3>
+<ul>
+<li><strong>Name</strong>: Name of the action showing in <em>Actions</em> pane inside repository
+<ul>
+<li>Tip: Align with the filename</li>
+</ul></li>
+<li><strong>On</strong>: Specify when to run
+<ul>
+<li>Fx. using <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">push</a>, <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore">pull_request</a>, <a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatch">workflow_dispatch</a>, etc.</li>
+</ul></li>
+</ul>
+<section id="sec:cron" class="level4">
+<h4 class="anchored" data-anchor-id="sec:cron">Scheduled running with cron jobs</h4>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <a href="https://crontab.guru/">crontab.guru</a> for cron syntax.</p>
+</div>
+</div>
+<ul>
+<li>Run at 9 AM every Friday:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>on<span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  schedule<span class="sc">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> cron<span class="sc">:</span> <span class="st">'0 9 * * 5'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Run hourly on weekdays:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>on<span class="sc">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  schedule<span class="sc">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> cron<span class="sc">:</span> <span class="st">'0 9-17 * * 1-5'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<ul>
+<li>Use <code>rig</code> for R setup and <code>pak</code> for dependencies:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> uses<span class="sc">:</span> actions<span class="sc">/</span>checkout<span class="sc">@</span>v4</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>setup<span class="sc">-</span>r<span class="sc">@</span>v2</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  with<span class="sc">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    use<span class="sc">-</span>public<span class="sc">-</span>rspm<span class="sc">:</span> true</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>setup<span class="sc">-</span>r<span class="sc">-</span>dependencies<span class="sc">@</span>v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Optionally, use <code>renv</code>:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> uses<span class="sc">:</span> r<span class="sc">-</span>lib<span class="sc">/</span>actions<span class="sc">/</span>setup<span class="sc">-</span>renv<span class="sc">@</span>v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="execution" class="level3">
+<h3 class="anchored" data-anchor-id="execution">Execution</h3>
+<ul>
+<li>Example steps:</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Fetch latest data</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  run<span class="sc">:</span> Rscript scrape.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Render Quarto directory</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  run<span class="sc">:</span> quarto render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="publishing" class="level3">
+<h3 class="anchored" data-anchor-id="publishing">Publishing</h3>
+<ul>
+<li>Auto-commit changes:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> uses<span class="sc">:</span> stefanzweifel<span class="sc">/</span>git<span class="sc">-</span>auto<span class="sc">-</span>commit<span class="sc">-</span>action<span class="sc">@</span>v5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Publish quarto website</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> name<span class="sc">:</span> Render and Publish</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  uses<span class="sc">:</span> quarto<span class="sc">-</span>dev<span class="sc">/</span>quarto<span class="sc">-</span>actions<span class="sc">/</span>publish<span class="sc">@</span>v2</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  with<span class="sc">:</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    target<span class="sc">:</span> gh<span class="sc">-</span>pages</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  env<span class="sc">:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    GITHUB_TOKEN<span class="sc">:</span> <span class="er">$</span>{{ secrets.GITHUB_TOKEN }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="example-repositories-and-actions" class="level3">
+<h3 class="anchored" data-anchor-id="example-repositories-and-actions">Example repositories and actions</h3>
+<p>Repositories:</p>
+<ul>
+<li><a href="https://github.com/hadley/available-work">Available Work</a>: Uses cron, personal access tokens, and pak for setup.</li>
+<li><a href="https://github.com/hadley/houston-pollen">Houston Pollen</a>: Same as above but includes parquet file management.</li>
+<li><a href="https://github.com/hadley/cran-deadlines">CRAN Deadlines</a>: Renders Quarto documents and publishes to GitHub Pages.</li>
+</ul>
+<p>Actions:</p>
+<p><a href="https://github.com/r-lib/actions/tree/v2-branch/examples">r-lib/actions examples</a></p>
+</section>
+</section>
+<section id="posit-connect-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="posit-connect-cloud">Posit Connect Cloud</h2>
+<ul>
+<li>Example of deployed app: <a href="https://github.com/hadley/eggnogr">eggnogr</a></li>
+<li>Requires <code>manifest.json</code> file via <code>rsconnect::writeManifest()</code>.</li>
+<li>Simplifies Docker image selection compared to GitHub Actions.</li>
+</ul>
+</section>
+<section id="general-considerations-regarding-cicd" class="level2">
+<h2 class="anchored" data-anchor-id="general-considerations-regarding-cicd">General considerations regarding <a href="https://www.redhat.com/en/topics/devops/what-is-ci-cd">CI/CD</a></h2>
+<section id="package-installation-and-dependency-setup" class="level3">
+<h3 class="anchored" data-anchor-id="package-installation-and-dependency-setup">Package installation and dependency setup</h3>
+<section id="approaches-to-snapshotting-to-make-sure-you-have-same-package-on-laptop-and-server" class="level4">
+<h4 class="anchored" data-anchor-id="approaches-to-snapshotting-to-make-sure-you-have-same-package-on-laptop-and-server">Approaches to snapshotting to make sure you have same package on laptop and server</h4>
+<ul>
+<li>DESCRIPTION + <code>pak::pak(".")</code> - live life on the edge</li>
+<li><code>rsconnect::writeManifest()</code> - capture dependencies when you deploy (only affects the server at deployment)</li>
+<li><code>renv::snapshot()</code> - lock dependencies for eternity (also on the laptop)</li>
+</ul>
+<section id="information-in-manifest.json-file" class="level5">
+<h5 class="anchored" data-anchor-id="information-in-manifest.json-file">Information in manifest.json file</h5>
+<p>What is the non-package information?</p>
+<ul>
+<li>version (of the manifest spec)</li>
+<li>locale (language)</li>
+<li>platform (R version)</li>
+<li>metadata
+<ul>
+<li>appmode (fx. shiny, rmd-static, etc.)</li>
+<li>etc.</li>
+</ul></li>
+<li>files</li>
+</ul>
+<p>What is the package information?</p>
+<ul>
+<li>Source: Fx. CRAN</li>
+<li>Repository</li>
+<li>description (metadata about lots of things)</li>
+</ul>
+</section>
+</section>
+<section id="difference-between-desktop-and-server-package-installs" class="level4">
+<h4 class="anchored" data-anchor-id="difference-between-desktop-and-server-package-installs">Difference between desktop and server package installs</h4>
+<ul>
+<li>Source package: Source code that needs to be built (in steps to bundled and then binary)</li>
+<li>Binary package: Ready to download, but computer specific. Is created from a source package. <em>Not available for Linux on CRAN</em>.</li>
+</ul>
+<p><strong>System dependencies</strong>:</p>
+<ul>
+<li>For Mac and Windows, packages are self-contained, meaning that system dependencies are within the package.</li>
+<li>For Linux, it uses C, etc. installed somewhere else on the computer.
+<ul>
+<li>Use the <a href="https://packagemanager.posit.co">Posit package manager</a> to get binaries also for Linux.
+<ul>
+<li>So do not need to compile from source each time. In containers, we install package, run some code and throw it away. So compiling source package (which might take a long time) needs to be done again and again.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="authentication" class="level3">
+<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
+<section id="encrypted-environment-variables" class="level4">
+<h4 class="anchored" data-anchor-id="encrypted-environment-variables">(Encrypted) Environment variables</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/workshop_envvars.JPG" class="img-fluid figure-img"></p>
+<figcaption>How to set an environment variable</figcaption>
+</figure>
+</div>
+<p>Don’t use <code>Sys.setenv()</code> - this will be saved in the .Rhistory file, which is easy to accidentally share. Add to your <code>.Renviron</code> file as shown in above picture</p>
+<section id="sec:envvar_ci" class="level5">
+<h5 class="anchored" data-anchor-id="sec:envvar_ci">Using environmental variables with GitHub actions and Posit cloud connect</h5>
+<p>In code, fx. use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">req_url_query</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    ...,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">apiKey =</span> <span class="fu">Sys.getenv</span>(<span class="st">"NEWS_API_KEY"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>On laptop: Set fx. <code>NEWS_API_KEY</code> with value in .Renviron</li>
+<li>Make secret variable in GitHub or posit cloud connect with name <code>NEWS_API_KEY</code> with value equal to the key (which is also set in .Renviron)
+<ul>
+<li>Make sure to include it in the environment of the docker container running the GitHub action by typing</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>env<span class="sc">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  NEWS_API_KEY<span class="sc">:</span> <span class="er">$</span>{{ secrets.NEWS_API_KEY }}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>The above point is often also used to prove a GitHub PAT to authorise a deployment fx.</li>
+</ul>
+</section>
+<section id="federated-authentication" class="level5">
+<h5 class="anchored" data-anchor-id="federated-authentication">Federated authentication</h5>
+<p>Can be used in Posit Connect administered by IT department in company.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="containers" class="level2">
+<h2 class="anchored" data-anchor-id="containers">Containers</h2>
+<ul>
+<li>Use of containers makes sure platform does not change</li>
+<li>Useful containers to know:
+<ul>
+<li><a href="https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job">GitHub action containers - Choosing the runner for a job</a>
+<ul>
+<li><code>ubuntu-latest</code></li>
+</ul></li>
+<li><a href="https://github.com/rocker-org/rocker/wiki">rocker</a>
+<ul>
+<li>Run R with docker containers</li>
+</ul></li>
+<li><a href="https://github.com/r-hub/rhub">rhub</a>
+<ul>
+<li>Use to create GitHub action for checking your package</li>
+</ul></li>
+<li><a href="https://github.com/r-hub/evercran">evercran</a>
+<ul>
+<li>Run historical R versions on today’s computers</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mathiaslj\.github\.io\/posit_conf_2024_notes\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mathiaslj/posit_conf_2024_notes/blob/main/workshop.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
