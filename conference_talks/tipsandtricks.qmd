@@ -2,11 +2,17 @@
 title: "Miscellaneous tips and tricks learnt from conference"
 ---
 
-## Use of AI
+## Use of AI {#sec:tipsandtricks-AI_tools}
 
--   See section [What's new - AI tools](whats_new.qmd#sec:whats_new-AI_tools) for notes on AI tools.
+-   Cool tools for educational use:
+    -   [recraft.ai](https://www.recraft.ai/) to generate consistent vector graphics - great for package stickers
+    -   [scribe](https://scribehow.com/) to easily create step-by-step tutorials
+    -   [descript](https://www.descript.com/) to modify video and audio recordings from transcript
+        -   Features besides editing the video through transcript include modifying voice, remove silence, filler words, create eye contact and more
+    -   See more in talk [Practical Tips for using Generative AI in Data Science Workflows](keynotes/02AI.qmd)
 -   See the [chattr R package](https://github.com/mlverse/chattr)
 -   Parametrise AI prompts using APIs
+    -   See more in talk [Using Generative AI to Increase the Impact of Your Data Science Work](other_talks/ai_not_generated.qmd#sec:ai_google) about use of the `vertexai` Python library to access Gemini API.
 
 ### Prompt engineering
 
@@ -17,16 +23,17 @@ title: "Miscellaneous tips and tricks learnt from conference"
 
 ## DuckDB
 
-See the notes on [duckplyr](keynotes/04duckdb.qmd#sec:duckplyr).
+See the notes from keynote [Data Wrangling [for Python or R] Like a Boss With DuckDB](keynotes/04duckdb.qmd), most specifically the section about [duckplyr](keynotes/04duckdb.qmd#sec:duckplyr).
 
-## API usage
+## Positron
 
-USE APIs!
-
--   Use [httr2](https://httr2.r-lib.org/) for HTTP requests
--   Look into [plumber](https://www.rplumber.io/) API package
-    -   See [this cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/plumber.pdf)
-
+-   Documentation on hover
+-   Use Poistron to debug C and C++
+-   Ctrl+shift+P opens command palette
+-   "Enable Rstudio key mappings in Positron" setting available
+-   Extensions readily available from [Open VSX](https://open-vsx.org/)
+    -   [Continue](https://github.com/continuedev/continue) for AI code assistant
+    
 ## Quarto
 
 See also [What's new - Quarto](whats_new.qmd#sec:what_new-quarto).
@@ -81,22 +88,14 @@ Use templates!
 -   `_common.R` file in project that sets `options(...)`, `knitr::opts_chunk$set(...)`, [theme_set](https://ggplot2.tidyverse.org/reference/theme_get.html) and [update_geom_defaults](https://ggplot2.tidyverse.org/reference/update_defaults.html) 
 -   Look into [execution management with freeze(:auto)](https://quarto.org/docs/projects/code-execution.html#freeze)
 -   Use of javascript extensions [lightbox](https://quarto.org/docs/output-formats/html-lightbox-figures.html) (allows reader to click image to enlarge) and [masonry](https://github.com/mcanouil/quarto-masonry) (grid layout library for customisation of image placements)
-
-## Positron
-
--   Documentation on hover
--   Use Poistron to debug C and C++
--   Ctrl+shift+P opens command palette
--   "Enable Rstudio key mappings in Positron" setting available
--   Extensions readily available from [Open VSX](https://open-vsx.org/)
-    -   [Continue](https://github.com/continuedev/continue) for AI code assistant
     
 ## GitHub actions
 
--   **Scheduled running**: Use [crontab.guru](https://crontab.guru/) for cron syntax (see examples of usage in [workshop notes](../workshop.qmd#sec:cron))
+See [notes about GitHub actions from workshop](../workshop.qmd#sec:workshop_github-actions) with notes on fx.
+
+-   **Scheduled running** using [crontab.guru](https://crontab.guru/)
 -   [r-lib/actions examples](https://github.com/r-lib/actions/tree/v2-branch/examples)
--   Use environment variables in the GitHub action to pass personal access tokens (PATs) to authorise publishing, API keys, etc.
-    -   See [Using environmental variables with GitHub actions and Posit cloud connect](../workshop.qmd#sec:envvar_ci) for more details
+-   [Use of environmental variables with GitHub actions and Posit cloud connect](../workshop.qmd#sec:envvar_ci)
 
 ## General package development
 
@@ -114,6 +113,12 @@ See workshop notes [Practical tips for working on production projects](../worksh
     -   [Tidyverse style guide](https://style.tidyverse.org/)
     
 ## Other
+
+### API usage
+
+-   Use [httr2](https://httr2.r-lib.org/) for HTTP requests
+-   Look into [plumber](https://www.rplumber.io/) API package
+    -   See [this cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/plumber.pdf)
 
 ### Computational statistics
 

@@ -2,19 +2,9 @@
 title: "What's new"
 ---
 
-## Quarto {#sec:what_new-quarto}
+## AI tools
 
--   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML
-    -   See brief intro to typst components in [these notes for talk *Report Design in R: Small Tweaks that Make a Big Difference*](other_talks/quarto_custom.qmd#sec:typst_components)
-    -   [Appsilon](https://www.appsilon.com/) used typst for automatic report generation in their TARS tool, which was talked about in the talk [*Shiny in Action: Transforming Film Production with TARS*](other_talks/end_to_end_ds.qmd#sec:TARS)
--   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content
-
-## AI tools {#sec:whats_new-AI_tools}
-
--   [recraft.ai](https://www.recraft.ai/) to generate consistent vector graphics - great for package stickers
--   [scribe](https://scribehow.com/) to easily create step-by-step tutorials
--   [descript](https://www.descript.com/) to modify video and audio recordings from transcript
-    -   Features besides editing the video through transcript include modifying voice, remove silence, filler words, create eye contact and more
+-   See section [What's new - AI tools](tipsandtricks.qmd#sec:tipsandtricks-AI_tools) for notes on AI tools.
     
 ## Positron
 
@@ -22,6 +12,13 @@ title: "What's new"
 -   Can debug C and C++ code
 -   Extensions readily available from [Open VSX](https://open-vsx.org/)
     -   [Continue](https://github.com/continuedev/continue) for AI code assistant
+
+## Quarto {#sec:what_new-quarto}
+
+-   [typst](https://quarto.org/docs/output-formats/typst.html) for PDF creation with exact look of HTML
+    -   See brief intro to typst components in [these notes for talk *Report Design in R: Small Tweaks that Make a Big Difference*](other_talks/quarto_custom.qmd#sec:typst_components)
+    -   [Appsilon](https://www.appsilon.com/) used typst for automatic report generation in their TARS tool, which was talked about in the talk [*Shiny in Action: Transforming Film Production with TARS*](other_talks/end_to_end_ds.qmd#sec:TARS)
+-   [Quarto live](https://github.com/r-wasm/quarto-live) for interactive documents and code exercises to create educational content
 
 ## Corporate specific
 

@@ -19,16 +19,24 @@ website:
       - href: workshop.qmd
         text: Workshop
       - sidebar:conference_talks
+      - sidebar:takeaways
+      
   sidebar: 
+    - id: takeaways
+      title: Takeaways
+      style: "docked"
+      collapse-level: 1
+      contents:
+        - section: "Takeaways"
+          contents:
+            - conference_talks/whats_new.qmd
+            - conference_talks/tipsandtricks.qmd
+            
     - id: conference_talks
       title: Conference talks
       style: "docked"
       collapse-level: 1
       contents: 
-        - section: "Takeaways"
-          contents:
-            - conference_talks/whats_new.qmd
-            - conference_talks/tipsandtricks.qmd
         - section: "Keynotes"
           contents:
             - auto: "conference_talks/keynotes/*.qmd"

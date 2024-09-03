@@ -98,7 +98,7 @@ Interactive jobs:
   - explore data, score model, etc.
   - run on demand
 
-## GitHub Actions
+## GitHub Actions {#sec:workshop_github-actions}
 
 - **YAML Structure**: Place YAML files with GitHub actions in ".github/workflows".
 - **GitHub actions run in container**

@@ -66,7 +66,7 @@ Legal and security have many arguments against using proprietary data with an AP
 
 **Essence of talk:** Great storytelling requires context, a great story and impact for the receiver. Examples in talk of AI not being able to understand context - we need humans for great storytelling.
 
-## Using Generative AI to Increase the Impact of Your Data Science Work
+## Using Generative AI to Increase the Impact of Your Data Science Work {#sec:ai_google}
 
 [Link to slides](goo.gle/genai-olympic-medals)
 
