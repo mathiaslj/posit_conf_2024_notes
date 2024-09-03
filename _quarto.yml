@@ -10,16 +10,14 @@ website:
   back-to-top-navigation: true
   bread-crumbs: false
   navbar:
-    right: 
-      - icon: github
-        href: https://github.com/mathiaslj/posit_conf_2024_notes
     left:
-      - href: index.qmd
-        text: Home
       - href: workshop.qmd
         text: Workshop
       - sidebar:conference_talks
       - sidebar:takeaways
+    right: 
+      - icon: github
+        href: https://github.com/mathiaslj/posit_conf_2024_notes
       
   sidebar: 
     - id: takeaways
